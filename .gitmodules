@@ -1,3 +1,3 @@
 [submodule "frontend"]
-	path = src/main/frontend
+	path = frontend
 	url = https://github.com/Ryoto-Noguchi/react-submodule.git
