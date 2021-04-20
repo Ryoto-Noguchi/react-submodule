@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React with Ryoto
+          Learn React with Ryoto Noguchi
         </a>
       </header>
     </div>
