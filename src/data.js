@@ -2,34 +2,47 @@ const questions = [
   {
     id: 1,
     question: "Who is the President of the United States ?",
-    choiceA: "Donald Trump",
-    choiceB: "Hillary Clinton",
-    choiceC: "Barack Obama",
-    choice: "Joe Biden",
+    choices: {
+      A: "Donald Trump",
+      B: "Hillary Clinton",
+      C: "Joe Biden",
+      D: "Joe Biden"
+    },
+    answer: "C"
+  },
+  {
+    id: 1,
+    question: "Who is the President of the United States ?",
+    choices: {
+      A: "Donald Trump",
+      B: "Hillary Clinton",
+      C: "Joe Biden",
+      D: "Joe Biden"
+    },
+    answer: "C"
   },
   {
     id: 2,
     question: "Who is the President of the United States ?",
-    choiceA: "Donald Trump",
-    choiceB: "Hillary Clinton",
-    choiceC: "Barack Obama",
-    choice: "Joe Biden",
+    choices: {
+      A: "Donald Trump",
+      B: "Hillary Clinton",
+      C: "Joe Biden",
+      D: "Joe Biden"
+    },
+    answer: "C"
   },
   {
     id: 3,
     question: "Who is the President of the United States ?",
-    choiceA: "Donald Trump",
-    choiceB: "Hillary Clinton",
-    choiceC: "Barack Obama",
-    choice: "Joe Biden",
+    choices: {
+      A: "Donald Trump",
+      B: "Hillary Clinton",
+      C: "Joe Biden",
+      D: "Joe Biden"
+    },
+    answer: "C"
   },
-  {
-    id: 4,
-    question: "Who is the President of the United States ?",
-    choiceA: "Donald Trump",
-    choiceB: "Hillary Clinton",
-    choiceC: "Barack Obama",
-    choice: "Joe Biden",
-  },
+
 ];
 export default questions;
