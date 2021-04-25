@@ -10,6 +10,7 @@ function App() {
   // const currentQuestionNumber = questions.find((question) => question.id === 1);
   // setQuestionNumber(currentQuestionNumber)
   return (
+    
     <main>
       <div className="container">
         <div className="question">
