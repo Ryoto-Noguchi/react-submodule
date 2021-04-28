@@ -1,12 +1,13 @@
-@charset "UTF-8";
 /* css %
 cd /Users/ryotonoguchi/Dropbox/Programing/springbootandreact/src/main/frontend/src
 node-sass index.scss index.css --output-style expanded --watch
 Scss自動コンパイルコマンド
 */
+
 .row {
   margin-right: -15px;
   margin-left: -15px;
+
 }
 
 .choice-box {
@@ -14,4 +15,5 @@ Scss自動コンパイルコマンド
   border-radius: 0.5rem;
   background-color: skyblue;
   padding: 15px;
+  // margin: 2rem;
 }

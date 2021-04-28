@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDom from "react-dom";
 import App from "./App";
+import './index.css';
 // ↓「% npm install react-bootstrap bootstrap」を実行したのちimportをindex.jsで記述
 import "bootstrap/dist/css/bootstrap.min.css";
 
