@@ -18,19 +18,15 @@ function App() {
         <Row className="row">
           <Col xs={6} className="choice-box">
             {question.choices.A}
-            {/* <Button variant="primary">Button</Button> */}
           </Col>
           <Col xs={6} className="choice-box">
             {question.choices.B}
-            {/* <Button variant="primary">Button</Button> */}
           </Col>
           <Col xs={6} className="choice-box">
             {question.choices.C}
-            {/* <Button variant="primary">Button</Button> */}
           </Col>
           <Col xs={6} className="choice-box">
             {question.choices.D}
-            {/* <Button variant="primary">Button</Button> */}
           </Col>
         </Row>
       </Container>
