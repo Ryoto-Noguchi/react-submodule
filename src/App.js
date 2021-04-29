@@ -8,25 +8,33 @@ function App() {
   const [questions, setQuestions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
-  // const currentQuestionNumber = questions.find((question) => question.id === 1);
-  // setQuestionNumber(currentQuestionNumber)
 
   return (
     <main>
-      <Container>
-        <div className="question">{question.question}</div>
+      <Container className="container">
+        <div className="question-box">
+          <p className="question-text">{question.question}</p>
+        </div>
         <Row className="row">
           <Col xs={6} className="choice-box">
-            {question.choices.A}
+            <div className="cell">
+              <p className="choice">{question.choices.A}</p>
+            </div>
           </Col>
           <Col xs={6} className="choice-box">
-            {question.choices.B}
+            <div className="cell">
+              <p className="choice">{question.choices.B}</p>
+            </div>
           </Col>
           <Col xs={6} className="choice-box">
-            {question.choices.C}
+            <div className="cell">
+              <p className="choice">{question.choices.C}</p>
+            </div>
           </Col>
           <Col xs={6} className="choice-box">
-            {question.choices.D}
+            <div className="cell">
+              <p className="choice">{question.choices.D}</p>
+            </div>
           </Col>
         </Row>
       </Container>
