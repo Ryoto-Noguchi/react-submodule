@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import data from "./data";
-import { Container } from "react-bootstrap";
-import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-function App() {
+import { Container, Row, Col, Button } from "react-bootstrap";
+import axios from "axios";
+
+function Monitor() {
   const [questions, setQuestions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
-
   return (
     <main>
       <Container className="container">
@@ -61,4 +59,5 @@ function App() {
     </main>
   );
 }
-export default App;
+
+export default Monitor;
