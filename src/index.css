@@ -32,6 +32,7 @@ Scss自動コンパイルコマンド
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .choice {
@@ -51,4 +52,44 @@ Scss自動コンパイルコマンド
 .question-text {
   margin: 0;
   line-height: 3rem;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  height: auto;
+}
+
+.alphabet {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  position: relative;
+  font-size: 1.7rem;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alphabet.red {
+  background-color: red;
+}
+
+.alphabet.blue {
+  background-color: blue;
+}
+
+.alphabet.yellow {
+  background-color: yellow;
+}
+
+.alphabet.green {
+  background-color: green;
 }

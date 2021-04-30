@@ -18,21 +18,41 @@ function App() {
         <Row className="row">
           <Col xs={6} className="choice-box">
             <div className="cell">
+              <div className="circle">
+                <p className="alphabet red">
+                  <span className="character">A</span>
+                </p>
+              </div>
               <p className="choice">{question.choices.A}</p>
             </div>
           </Col>
           <Col xs={6} className="choice-box">
             <div className="cell">
+              <div className="circle">
+                <p className="alphabet blue">
+                  <span className="character">B</span>
+                </p>
+              </div>
               <p className="choice">{question.choices.B}</p>
             </div>
           </Col>
           <Col xs={6} className="choice-box">
             <div className="cell">
+              <div className="circle">
+                <p className="alphabet yellow">
+                  <span className="character">C</span>
+                </p>
+              </div>
               <p className="choice">{question.choices.C}</p>
             </div>
           </Col>
           <Col xs={6} className="choice-box">
             <div className="cell">
+              <div className="circle">
+                <p className="alphabet green">
+                  <span className="character">D</span>
+                </p>
+              </div>
               <p className="choice">{question.choices.D}</p>
             </div>
           </Col>
