@@ -14,7 +14,7 @@ function Monitor() {
           <p className="question-text">{question.question}</p>
         </div>
         <Row className="row">
-          <Col xs={6} className="choice-box">
+          <Col  className="choice-box">
             <div className="cell">
               <div className="circle">
                 <p className="alphabet red">

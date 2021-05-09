@@ -33,13 +33,10 @@ const Admin = () => {
             <h3 className="admin-index">
               <FontAwesomeIcon icon={faEnvelope} />Sounds
             </h3>
-            <div clasName="sound-btns">
-              <Button>Start</Button>
-              <Button>Start</Button>
-              <Button>Start</Button>
-              <Button>Start</Button>
-              <Button>Start</Button>
-              <Button>Start</Button>
+            <div className="sound-btns">
+              <Button>Question</Button>
+              <Button>Ready Go !</Button>
+              <Button>Answer Check</Button>
             </div>
           </div>
         </Col>

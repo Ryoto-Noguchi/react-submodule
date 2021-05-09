@@ -94,3 +94,8 @@ Scss自動コンパイルコマンド
 .alphabet.green {
   background-color: green;
 }
+
+.sound-btns {
+  display: flex;
+  justify-content: space-around;
+}
