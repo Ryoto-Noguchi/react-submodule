@@ -4,6 +4,7 @@ cd /Users/ryotonoguchi/Dropbox/Programing/springbootandreact/src/main/frontend/s
 node-sass index.scss index.css --output-style expanded --watch
 Scss自動コンパイルコマンド
 */
+/* 共通 */
 .container {
   padding: 5rem;
 }
@@ -12,6 +13,7 @@ Scss自動コンパイルコマンド
   padding: 3rem;
 }
 
+/* Monitor.jsx */
 .choice-box {
   height: 20rem;
   background-color: white;
@@ -47,6 +49,7 @@ Scss自動コンパイルコマンド
   margin-right: 3rem;
   margin-left: 3rem;
   border-radius: .5rem;
+  position: relative;
 }
 
 .question-text {
@@ -95,6 +98,25 @@ Scss自動コンパイルコマンド
   background-color: green;
 }
 
+#count-down {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  position: relative;
+  font-size: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  background-color: red;
+  position: absolute;
+  right: 1rem;
+}
+
+/* Admin.jsx */
 .sound-btns {
   display: flex;
   justify-content: space-around;
