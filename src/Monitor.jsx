@@ -2,8 +2,9 @@ import React, { useState, useRef } from "react";
 import data from "./data";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import axios from "axios";
+import Admin from "./Admin";
 
-export function Monitor() {
+const Monitor = (props) => {
   const [questions, setQuestions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
@@ -84,5 +85,6 @@ export function ringTimeUp() {
 export function ringAnswerCheck() {
   console.log("Answer Check");
 }
+
 
 export default Monitor;

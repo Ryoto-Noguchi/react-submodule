@@ -1,3 +1,4 @@
+// 親コンポーネント //
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Monitor from "./Monitor";
@@ -20,7 +21,7 @@ function App() {
         </Route>
         <Route path="*">
           <Error />
-        </Route>  
+        </Route>
       </Switch>
     </Router>
   );
