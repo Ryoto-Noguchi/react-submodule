@@ -3,7 +3,6 @@ import { Container, Row, Col, Button, Card, Table, Form } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // ↓font-awesomeのnameの指定の仕方(https://stackoverflow.com/questions/56351531/how-to-find-icon-names-for-font-awesome-to-import-with-react)
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
-import {countdown} from "./Monitor"
 
 const Admin = () => {
   return (
@@ -36,7 +35,7 @@ const Admin = () => {
             </h3>
             <div className="sound-btns">
               <Button>Question</Button>
-              <Button id="ready-go-btn" onClick={() => countdown()}>Ready Go !</Button>
+              <Button id="ready-go-btn" >Ready Go !</Button>
               <Button>Answer Check</Button>
             </div>
           </div>

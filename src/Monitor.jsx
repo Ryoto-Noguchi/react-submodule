@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useRef } from "react";
 import data from "./data";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import axios from "axios";
@@ -7,17 +7,39 @@ export function Monitor() {
   const [questions, setQuestions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
+  const refContainer = useRef(null);
+  const countdown = () => {
+    console.log(refContainer.current.innerHTML);
+    let second = refContainer.current.innerHTML;
+    // second.style.color = "white";
+    const count = 0;
 
+    const timerID = setInterval(function () {
+      if (second === count) {
+        console.log("finish");
+        clearInterval(timerID);
+        ringTimeUp();
+        ringAnswerCheck();
+      } else {
+        console.log("not yet")
+        second--;
+        console.log(second)
+      }
+    }, 1000);
+  };
 
   return (
     <main>
       <Container className="container">
         <div className="question-box">
           <p className="question-text">{question.question}</p>
-          <span id="countDown">10</span>
+          <span id="count-down" ref={refContainer}>
+            10
+          </span>
+          <button onClick={() => countdown()}>Check</button>
         </div>
         <Row className="row">
-          <Col  className="choice-box">
+          <Col className="choice-box">
             <div className="cell">
               <div className="circle">
                 <p className="alphabet red">
@@ -61,23 +83,6 @@ export function Monitor() {
       </Container>
     </main>
   );
-}
-
-export function countdown() {
-  console.log("ready go clicked")
-  let second = document.getElementById('countDown');
-  console.log(second)
-  // second.style.color = "white";
-  const count = 0;
-
-  const timerID = setInterval(function () {
-    if (second === count) {
-      clearInterval(timerID);
-      ringTimeUp();
-      ringAnswerCheck();
-      second.textContent = second--;
-    }
-  }, 1000);
 }
 
 export function ringTimeUp() {
