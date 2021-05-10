@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import data from "./data";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import axios from "axios";
-import Admin from "./Admin";
 
 const Monitor = (props) => {
   const [questions, setQuestions] = useState(data);
