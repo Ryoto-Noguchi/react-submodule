@@ -7,23 +7,17 @@ export function Monitor() {
   const [questions, setQuestions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
-  const refContainer = useRef(null);
-  const countdown = () => {
-    console.log(refContainer.current.innerHTML);
-    let second = refContainer.current.innerHTML;
-    // second.style.color = "white";
-    const count = 0;
+  let [number, setNumber] = useState(10); // 10秒カウントダウン用
 
+  const countdown = () => {
+    const count = 0;
     const timerID = setInterval(function () {
-      if (second === count) {
-        console.log("finish");
+      if (number === count) {
         clearInterval(timerID);
         ringTimeUp();
         ringAnswerCheck();
       } else {
-        console.log("not yet")
-        second--;
-        console.log(second)
+        setNumber(--number);
       }
     }, 1000);
   };
@@ -33,9 +27,7 @@ export function Monitor() {
       <Container className="container">
         <div className="question-box">
           <p className="question-text">{question.question}</p>
-          <span id="count-down" ref={refContainer}>
-            10
-          </span>
+          <span id="count-down">{number}</span>
           <button onClick={() => countdown()}>Check</button>
         </div>
         <Row className="row">
