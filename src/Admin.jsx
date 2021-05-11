@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import Monitor from "./Monitor"
 
-const Admin = () => {
+const Admin = (props) => {
+  const {countdown} = props;
 
   return (
     <Container className="container">
@@ -37,7 +38,7 @@ const Admin = () => {
             </h3>
             <div className="sound-btns">
               <Button>Question</Button>
-              <Button id="ready-go-btn">Ready Go !</Button>
+              <Button id="ready-go-btn" onClick={()=>countdown()}>Ready Go !</Button>
               <Button>Answer Check</Button>
             </div>
           </div>

@@ -1,21 +1,40 @@
 // 親コンポーネント //
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Monitor from "./Monitor";
+import { ringTimeUp, ringAnswerCheck } from "./Monitor";
 import Admin from "./Admin";
 import Client from "./Client";
 import Error from "./Error";
 
 // https://teratail.com/questions/115532
 function App() {
+  let [number, setNumber] = useState(10);
+
+  const countdown = () => {
+    console.log("clicked");
+    console.log(number);
+    const count = 0;
+    const timerID = setInterval(function () {
+      if (number === count) {
+        clearInterval(timerID);
+        ringTimeUp();
+        ringAnswerCheck();
+      } else {
+        setNumber(--number);
+        console.log(number);
+      }
+    }, 1000);
+  };
+
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Monitor />
+          <Monitor number={number} />
         </Route>
         <Route exact path="/admin">
-          <Admin />
+          <Admin countdown={countdown} />
         </Route>
         <Route exact path="/client">
           <Client />
