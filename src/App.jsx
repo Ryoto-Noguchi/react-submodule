@@ -9,49 +9,46 @@ import Error from "./Error";
 
 // https://teratail.com/questions/115532
 function App() {
-  let [number, setNumber] = useState(10);
+  // let [number, setNumber] = useState(10);
 
-  const countdown = () => {
-    console.log("clicked");
-    console.log(number);
-    const count = 0;
-    // const timerID = setInterval(function () {
-    //   if (number === count) {
-    //     clearInterval(timerID);
-    //     ringTimeUp();
-    //     ringAnswerCheck();
-    //   } else {
-    //     setNumber(--number);
-    //     console.log(number);
-    //   }
-    // }, 1000);
-  };
+  // const countdown = () => {
+  //   console.log("clicked");
+  //   console.log(number);
+  //   const count = 0;
+  //   const timerID = setInterval(function () {
+  //     if (number === count) {
+  //       clearInterval(timerID);
+  //       ringTimeUp();
+  //       ringAnswerCheck();
+  //     } else {
+  //       setNumber(--number);
+  //       console.log(number);
+  //     }
+  //   }, 1000);
+  // };
 
-  useEffect(() => {
-    const timerID = setInterval(function () {
-      const count = 0;
-      if (number === count) {
-        clearInterval(timerID);
-        ringTimeUp();
-        ringAnswerCheck();
-      } else {
-        setNumber(--number);
-        console.log(number);
-      }
-    }, 1000);
-    return () => {
-      // cleanup;
-    };
-  }, [number])
+  // useEffect(() => {
+  //   const timerID = setInterval(function () {
+  //     const count = 0;
+  //     if (number === count) {
+  //       clearInterval(timerID);
+  //       ringTimeUp();
+  //       ringAnswerCheck();
+  //     } else {
+  //       setNumber(--number);
+  //       // console.log(number);
+  //     }
+  //   }, 1000);
+  // }, [])
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Monitor number={number} setNumber={setNumber}/>
+          <Monitor />
         </Route>
         <Route exact path="/admin">
-          <Admin countdown={countdown} />
+          <Admin />
         </Route>
         <Route exact path="/client">
           <Client />

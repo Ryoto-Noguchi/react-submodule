@@ -7,18 +7,43 @@ const Monitor = (props) => {
   const [questions, setQuestions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
-  // let [number, setNumber] = useState(10); // 10秒カウントダウン用
-  const { number, setNumber } = props;
-  console.log(number);
+  let [number, setNumber] = useState(10); // 10秒カウントダウン用
+
+  // const countdown = () => {
+  //   console.log("clicked");
+  //   console.log(number);
+  //   const count = 0;
+  //   const timerID = setInterval(function () {
+  //     if (number === count) {
+  //       clearInterval(timerID);
+  //       ringTimeUp();
+  //       ringAnswerCheck();
+  //     } else {
+  //       setNumber(--number);
+  //       console.log(number);
+  //     }
+  //   }, 1000);
+  // };
+  useEffect(() => {
+    const timerID = setInterval(function () {
+      const count = 0;
+      if (number === count) {
+        clearInterval(timerID);
+        ringTimeUp();
+        ringAnswerCheck();
+      } else {
+        setNumber(--number);
+        // console.log(number);
+      }
+    }, 1000);
+  }, [])
 
   return (
     <main>
       <Container className="container">
         <div className="question-box">
           <p className="question-text">{question.question}</p>
-          <span id="count-down" onChange={() => setNumber(number)}>
-            {number}
-          </span>
+          <span id="count-down">{number}</span>
           {/* <button onClick={() => countdown()}>Check</button> */}
         </div>
         <Row className="row">
