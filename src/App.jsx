@@ -15,7 +15,21 @@ function App() {
     console.log("clicked");
     console.log(number);
     const count = 0;
+    // const timerID = setInterval(function () {
+    //   if (number === count) {
+    //     clearInterval(timerID);
+    //     ringTimeUp();
+    //     ringAnswerCheck();
+    //   } else {
+    //     setNumber(--number);
+    //     console.log(number);
+    //   }
+    // }, 1000);
+  };
+
+  useEffect(() => {
     const timerID = setInterval(function () {
+      const count = 0;
       if (number === count) {
         clearInterval(timerID);
         ringTimeUp();
@@ -25,13 +39,16 @@ function App() {
         console.log(number);
       }
     }, 1000);
-  };
+    return () => {
+      // cleanup;
+    };
+  }, [number])
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Monitor number={number} />
+          <Monitor number={number} setNumber={setNumber}/>
         </Route>
         <Route exact path="/admin">
           <Admin countdown={countdown} />

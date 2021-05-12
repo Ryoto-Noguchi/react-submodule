@@ -8,15 +8,17 @@ const Monitor = (props) => {
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
   // let [number, setNumber] = useState(10); // 10秒カウントダウン用
-  const {number} = props;
-  console.log("render");
+  const { number, setNumber } = props;
+  console.log(number);
 
   return (
     <main>
       <Container className="container">
         <div className="question-box">
           <p className="question-text">{question.question}</p>
-          <span id="count-down">{number}</span>
+          <span id="count-down" onChange={() => setNumber(number)}>
+            {number}
+          </span>
           {/* <button onClick={() => countdown()}>Check</button> */}
         </div>
         <Row className="row">
