@@ -38,9 +38,14 @@ const Monitor = (props) => {
     }, 1000);
   }, [])
 
+  const goNextQuestion = () => {
+    setQuestionNumber(questionNumber + 1);
+  }
+
   return (
     <main>
       <Container className="container">
+        <Button variant="warning" onClick={()=>goNextQuestion()}>Next</Button>
         <div className="question-box">
           <p className="question-text">{question.question}</p>
           <span id="count-down">{number}</span>
