@@ -7,49 +7,39 @@ const Monitor = (props) => {
   const [questions, setQuestions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
+  // const correctAnswer = question.answer;
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
 
-  // const countdown = () => {
-  //   console.log("clicked");
-  //   console.log(number);
-  //   const count = 0;
-  //   const timerID = setInterval(function () {
-  //     if (number === count) {
-  //       clearInterval(timerID);
-  //       ringTimeUp();
-  //       ringAnswerCheck();
-  //     } else {
-  //       setNumber(--number);
-  //       console.log(number);
-  //     }
-  //   }, 1000);
-  // };
-  useEffect(() => {
+  const countdown = () => {
+    console.log("clicked");
+    console.log(number);
+    const count = 0;
     const timerID = setInterval(function () {
-      const count = 0;
       if (number === count) {
         clearInterval(timerID);
         ringTimeUp();
         ringAnswerCheck();
       } else {
         setNumber(--number);
-        // console.log(number);
+        console.log(number);
       }
     }, 1000);
-  }, [])
+  };
 
   const goNextQuestion = () => {
     setQuestionNumber(questionNumber + 1);
-  }
+  };
+
+  const goPrevQuestion = () => {
+    setQuestionNumber(questionNumber - 1);
+  };
 
   return (
     <main>
       <Container className="container">
-        <Button variant="warning" onClick={()=>goNextQuestion()}>Next</Button>
         <div className="question-box">
           <p className="question-text">{question.question}</p>
           <span id="count-down">{number}</span>
-          {/* <button onClick={() => countdown()}>Check</button> */}
         </div>
         <Row className="row">
           <Col className="choice-box">
@@ -60,6 +50,7 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.A}</p>
+              {/* {correctAnswer === "C" && number === 0 && <span>◉</span>} */}
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -93,10 +84,33 @@ const Monitor = (props) => {
             </div>
           </Col>
         </Row>
+        <div className="btn-area">
+          {questionNumber > 1 && (
+            <Button
+              className="manupulate-btn"
+              variant="info"
+              onClick={() => goPrevQuestion()}
+            >
+              Prev
+            </Button>
+          )}
+          <Button className="manupulate-btn" onClick={() => countdown()}>
+            Start
+          </Button>
+          {questionNumber < questions.length && (
+            <Button
+              className="manupulate-btn"
+              variant="warning"
+              onClick={() => goNextQuestion()}
+            >
+              Next
+            </Button>
+          )}
+        </div>
       </Container>
     </main>
   );
-}
+};
 
 export function ringTimeUp() {
   console.log("Time's Up");
@@ -105,6 +119,5 @@ export function ringTimeUp() {
 export function ringAnswerCheck() {
   console.log("Answer Check");
 }
-
 
 export default Monitor;
