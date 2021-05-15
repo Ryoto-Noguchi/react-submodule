@@ -114,6 +114,16 @@ Scss自動コンパイルコマンド
   right: 1rem;
 }
 
+// btn-area
+.btn-area {
+  display: flex;
+  justify-content:flex-end;
+
+  .manupulate-btn {
+    margin-right: 1rem;
+  }
+}
+
 /* Admin.jsx */
 .sound-btns {
   display: flex;
