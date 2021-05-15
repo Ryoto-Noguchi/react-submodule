@@ -7,7 +7,6 @@ import Admin from "./Admin";
 import Client from "./Client";
 import Error from "./Error";
 
-// https://teratail.com/questions/115532
 function App() {
   // let [number, setNumber] = useState(10);
 
