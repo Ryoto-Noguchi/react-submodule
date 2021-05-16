@@ -1,19 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
 
 function Countdown(props) {
-  let { number, setNumber, correctAnswer } = props;
-  const [isPlaying, setIsPlaying] = useState(false);
   const countdownAudioEl = useRef(null);
-
+  let { number, setNumber, correctAnswer, isPlaying, setIsPlaying } = props;
   const countdown = () => {
+    document.getElementById("next-btn").disabled = true;
+    document.getElementById("prev-btn").disabled = true;
+    console.log(document.getElementById("next-btn"));
+    // console.log(`再生否:${isPlaying}`);
     console.log(number);
     setIsPlaying((isPlaying) => !isPlaying);
     setIsPlaying((isPlaying) => {
       return isPlaying;
     });
 
-    setIsPlaying(!isPlaying);
     const count = 0;
     const timerID = setInterval(function () {
       if (number === count) {
@@ -24,10 +25,14 @@ function Countdown(props) {
             if (elements[i].innerHTML === correctAnswer) {
               let count = 0;
               const timerId = setInterval(() => {
-                elements[i].closest('.cell').classList.toggle("blink-bg-color");
-                count++
+                elements[i].closest(".cell").classList.toggle("blink-bg-color");
+                count++;
                 if (count > 4) {
                   clearInterval(timerId);
+                  setTimeout(() => {
+                    document.getElementById("next-btn").disabled = false;
+                    document.getElementById("prev-btn").disabled = false;
+                  }, 1000);
                 }
               }, 300);
             }
@@ -50,7 +55,11 @@ function Countdown(props) {
 
   return (
     <div>
-      <Button className="manupulate-btn" onClick={() => countdown()} disabled={number !== 10 && true}>
+      <Button
+        className="manupulate-btn"
+        onClick={() => countdown()}
+        disabled={number !== 10 && true}
+      >
         Start
       </Button>
       <audio

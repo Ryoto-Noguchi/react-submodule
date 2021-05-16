@@ -12,14 +12,25 @@ const Monitor = (props) => {
   const question = questions.find((question) => question.id === questionNumber);
   const correctAnswer = question.answer;
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
-
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const goNextQuestion = () => {
     setQuestionNumber(questionNumber + 1);
+    resetQuestion();
   };
 
   const goPrevQuestion = () => {
     setQuestionNumber(questionNumber - 1);
+    resetQuestion();
+  };
+
+  const resetQuestion = () => {
+    setNumber(10);
+    setIsPlaying(false);
+    var elements = document.getElementsByClassName("character");
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].closest(".cell").classList.remove("blink-bg-color");
+    }
   };
 
   return (
@@ -77,6 +88,8 @@ const Monitor = (props) => {
             goPrevQuestion={goPrevQuestion}
           />
           <Countdown
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
             number={number}
             setNumber={setNumber}
             correctAnswer={correctAnswer}
