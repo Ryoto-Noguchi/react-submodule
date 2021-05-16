@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Countdown from "./Countdown";
 import NextQuestion from "./NextQuestion";
 import PrevQuestion from "./PrevQuestion";
+// import background from "../public/image/background-image"
 
 const Monitor = (props) => {
   const [questions] = useState(data);
@@ -13,6 +14,7 @@ const Monitor = (props) => {
   const correctAnswer = question.answer;
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
   const [isPlaying, setIsPlaying] = useState(false);
+  const bgImgUrl = "./image/background-image.png";
 
   const goNextQuestion = () => {
     setQuestionNumber(questionNumber + 1);
@@ -34,7 +36,7 @@ const Monitor = (props) => {
   };
 
   return (
-    <main>
+    <main id="monitor" >
       <Container className="container">
         <div className="question-box">
           <p className="question-text">{question.question}</p>

@@ -14,14 +14,20 @@ Scss自動コンパイルコマンド
 }
 
 /* Monitor.jsx */
+#monitor {
+  background-image: url("./images/background-image.png");
+}
+
 .choice-box {
   height: 20rem;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5rem !important;
+  padding: 0.5rem !important;
   position: relative;
+  background-color: rgba(4, 83, 255, 0.797);
+  border-radius: 1rem;
 }
 
 .cell {
@@ -53,7 +59,7 @@ Scss自動コンパイルコマンド
   background-color: pink;
   margin-right: 3rem;
   margin-left: 3rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   position: relative;
 }
 
