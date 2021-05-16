@@ -96,12 +96,4 @@ const Monitor = (props) => {
   );
 };
 
-export function ringTimeUp() {
-  console.log("Time's Up");
-}
-
-export function ringAnswerCheck() {
-  console.log("Answer Check");
-}
-
 export default Monitor;
