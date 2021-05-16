@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import data from "./data";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import axios from "axios";
@@ -10,9 +10,28 @@ const Monitor = (props) => {
   // const correctAnswer = question.answer;
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
 
+  const audioEl = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    console.log("played")
+    if(isPlaying) {
+      audioEl.current.load();
+      audioEl.current.muted = false;
+      audioEl.current.play();
+    } else {
+      audioEl.current.pause();
+    }
+  }, [isPlaying]);
+
   const countdown = () => {
     console.log("clicked");
     console.log(number);
+    setIsPlaying((isPlaying) => !isPlaying);
+    setIsPlaying((isPlaying) => {
+      console.log(`再生否:${isPlaying}`)
+      return isPlaying;
+    })
     const count = 0;
     const timerID = setInterval(function () {
       if (number === count) {
@@ -94,9 +113,16 @@ const Monitor = (props) => {
               Prev
             </Button>
           )}
-          <Button className="manupulate-btn" onClick={() => countdown()}>
-            Start
-          </Button>
+          <div>
+            <Button className="manupulate-btn" onClick={() => countdown()}>
+              Start
+            </Button>
+            <audio
+              // ↓「src="../public/music/countdown_10sec.mp3"」ではエラーになる。なぜだかは不明
+              src="./music/countdown_10sec.mp3"
+              ref={audioEl}
+            ></audio>
+          </div>
           {questionNumber < questions.length && (
             <Button
               className="manupulate-btn"
