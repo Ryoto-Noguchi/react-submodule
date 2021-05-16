@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 import { Button } from "react-bootstrap";
 
 function PrevQuestion(props) {
-  const {questionNumber, goPrevQuestion} = props;
+  const { questionNumber, goPrevQuestion } = props;
   return (
     <div>
-      {questionNumber > 1 && (
         <Button
+          id="prev-btn"
           className="manupulate-btn"
           variant="info"
           onClick={() => goPrevQuestion()}
+          disabled={questionNumber <= 1 && true}
         >
           Prev
         </Button>
-      )}
     </div>
   );
 }
 
-export default PrevQuestion
+export default PrevQuestion;
