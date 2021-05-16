@@ -50,7 +50,7 @@ function Countdown(props) {
 
   return (
     <div>
-      <Button className="manupulate-btn" onClick={() => countdown()}>
+      <Button className="manupulate-btn" onClick={() => countdown()} disabled={number !== 10 && true}>
         Start
       </Button>
       <audio
