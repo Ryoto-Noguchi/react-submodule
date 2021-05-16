@@ -25,7 +25,7 @@ function Countdown(props) {
             elements[i].style.display="block";
           }
           clearInterval(timerId);
-        }, 5000);
+        }, 6000);
       } else {
         setNumber(--number);
         console.log(number);

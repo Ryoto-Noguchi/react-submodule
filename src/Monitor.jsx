@@ -36,6 +36,9 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.A}</p>
+              {correctAnswer === "A" && number === 0 && (
+                <span className="red-circle">◯</span>
+              )}
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -46,6 +49,9 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.B}</p>
+              {correctAnswer === "B" && number === 0 && (
+                <span className="red-circle">◯</span>
+              )}
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -69,6 +75,9 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.D}</p>
+              {correctAnswer === "D" && number === 0 && (
+                <span className="red-circle">◯</span>
+              )}
             </div>
           </Col>
         </Row>
