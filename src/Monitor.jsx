@@ -24,6 +24,7 @@ const Monitor = (props) => {
     }
   }, [isPlaying]);
 
+  
   const countdown = () => {
     console.log("clicked");
     console.log(number);
