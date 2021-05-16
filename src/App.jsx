@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Monitor from "./Monitor";
-import { ringTimeUp, ringAnswerCheck } from "./Monitor";
+
 import Admin from "./Admin";
 import Client from "./Client";
 import Error from "./Error";
