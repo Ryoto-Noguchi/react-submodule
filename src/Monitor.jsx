@@ -13,6 +13,7 @@ const Monitor = (props) => {
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  
   useEffect(() => {
     console.log("played")
     if(isPlaying) {
@@ -24,7 +25,7 @@ const Monitor = (props) => {
     }
   }, [isPlaying]);
 
-  
+
   const countdown = () => {
     console.log("clicked");
     console.log(number);
