@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { ringTimeUp, ringAnswerCheck } from "./Monitor";
+// import { ringTimeUp, ringAnswerCheck } from "./Monitor";
 
 function Countdown(props) {
   let { number, setNumber } = props;
@@ -19,8 +19,6 @@ function Countdown(props) {
     const timerID = setInterval(function () {
       if (number === count) {
         clearInterval(timerID);
-        ringTimeUp();
-        ringAnswerCheck();
       } else {
         setNumber(--number);
         console.log(number);
@@ -32,7 +30,7 @@ function Countdown(props) {
     console.log("played");
     if (isPlaying) {
       countdownAudioEl.current.play();
-    } 
+    }
   }, [isPlaying]);
 
   return (
@@ -42,7 +40,7 @@ function Countdown(props) {
       </Button>
       <audio
         // ↓「src="../public/music/countdown_10sec.mp3"」ではエラーになる。なぜだかは不明
-        src="./music/countdown_10sec.mp3"
+        src="./music/countdown.mp3"
         ref={countdownAudioEl}
       ></audio>
     </div>
