@@ -21,6 +21,7 @@ Scss自動コンパイルコマンド
   justify-content: center;
   align-items: center;
   padding: .5rem !important;
+  position: relative;
 }
 
 .cell {
@@ -123,6 +124,13 @@ Scss自動コンパイルコマンド
 
 .btn-area .manupulate-btn {
   margin-right: 1rem;
+}
+
+.red-circle {
+  display: none;
+  color: red;
+  font-size: 18rem;
+  position: absolute;
 }
 
 /* Admin.jsx */

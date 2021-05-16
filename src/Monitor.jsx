@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import data from "./data";
 import { Container, Row, Col, Button } from "react-bootstrap";
 // import axios from "axios";
 import Countdown from "./Countdown";
 
 const Monitor = (props) => {
-  const [questions, setQuestions] = useState(data);
+  const [questions] = useState(data);
   const [questionNumber, setQuestionNumber] = useState(1);
   const question = questions.find((question) => question.id === questionNumber);
-  // const correctAnswer = question.answer;
+  const correctAnswer = question.answer;
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
 
 
@@ -36,7 +36,9 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.A}</p>
-              {/* {correctAnswer === "C" && number === 0 && <span>◉</span>} */}
+              {correctAnswer === "A" && number === 0 && (
+                <span className="red-circle">◯</span>
+              )}
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -47,6 +49,9 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.B}</p>
+              {correctAnswer === "B" && number === 0 && (
+                <span className="red-circle">◯</span>
+              )}
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -57,6 +62,9 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.C}</p>
+              {correctAnswer === "C" && number === 0 && (
+                <span className="red-circle">◯</span>
+              )}
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -67,6 +75,9 @@ const Monitor = (props) => {
                 </p>
               </div>
               <p className="choice">{question.choices.D}</p>
+              {correctAnswer === "D" && number === 0 && (
+                <span className="red-circle">◯</span>
+              )}
             </div>
           </Col>
         </Row>
@@ -80,7 +91,7 @@ const Monitor = (props) => {
               Prev
             </Button>
           )}
-          <Countdown number={number} setNumber={setNumber}/>
+          <Countdown number={number} setNumber={setNumber} />
           {questionNumber < questions.length && (
             <Button
               className="manupulate-btn"

@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
-// import { ringTimeUp, ringAnswerCheck } from "./Monitor";
 
 function Countdown(props) {
   let { number, setNumber } = props;
@@ -19,6 +18,13 @@ function Countdown(props) {
     const timerID = setInterval(function () {
       if (number === count) {
         clearInterval(timerID);
+        const timerId = setInterval(() => {
+          var elements = document.getElementsByClassName("red-circle");
+          for (let i = 0; i < elements.length; i++) {
+            elements[i].style.display="block";
+          }
+          clearInterval(timerId);
+        }, 6000);
       } else {
         setNumber(--number);
         console.log(number);
