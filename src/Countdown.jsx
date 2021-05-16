@@ -21,7 +21,6 @@ function Countdown(props) {
         const timerId = setInterval(() => {
           var elements = document.getElementsByClassName("red-circle");
           for (let i = 0; i < elements.length; i++) {
-            console.log(elements[i]);
             elements[i].style.display="block";
           }
           clearInterval(timerId);
