@@ -3,6 +3,8 @@ import data from "./data";
 import { Container, Row, Col, Button } from "react-bootstrap";
 // import axios from "axios";
 import Countdown from "./Countdown";
+import NextQuestion from "./NextQuestion";
+import PrevQuestion from "./PrevQuestion";
 
 const Monitor = (props) => {
   const [questions] = useState(data);
@@ -70,26 +72,20 @@ const Monitor = (props) => {
           </Col>
         </Row>
         <div className="btn-area">
-          {questionNumber > 1 && (
-            <Button
-              className="manupulate-btn"
-              variant="info"
-              onClick={() => goPrevQuestion()}
-            >
-              Prev
-            </Button>
-          )}
-          <Countdown number={number} setNumber={setNumber} correctAnswer={correctAnswer}/>
-          
-          {questionNumber < questions.length && (
-            <Button
-              className="manupulate-btn"
-              variant="warning"
-              onClick={() => goNextQuestion()}
-            >
-              Next
-            </Button>
-          )}
+          <PrevQuestion
+            questionNumber={questionNumber}
+            goPrevQuestion={goPrevQuestion}
+          />
+          <Countdown
+            number={number}
+            setNumber={setNumber}
+            correctAnswer={correctAnswer}
+          />
+          <NextQuestion
+            questionNumber={questionNumber}
+            questions={questions}
+            goNextQuestion={goNextQuestion}
+          />
         </div>
       </Container>
     </main>
