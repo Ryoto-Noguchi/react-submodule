@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
-// import { ringTimeUp, ringAnswerCheck } from "./Monitor";
 
 function Countdown(props) {
   let { number, setNumber } = props;
