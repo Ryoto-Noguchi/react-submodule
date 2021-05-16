@@ -37,6 +37,9 @@ Scss自動コンパイルコマンド
   align-items: center;
   justify-content: center;
   position: relative;
+  &.blink-bg-color {
+    background-color: yellowgreen !important;
+  }
 }
 
 .choice {
@@ -132,6 +135,8 @@ Scss自動コンパイルコマンド
   font-size: 18rem ;
   position: absolute;
 }
+
+
 
 /* Admin.jsx */
 .sound-btns {

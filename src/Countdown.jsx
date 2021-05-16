@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Button } from "react-bootstrap";
 
 function Countdown(props) {
-  let { number, setNumber } = props;
+  let { number, setNumber, correctAnswer } = props;
   const [isPlaying, setIsPlaying] = useState(false);
   const countdownAudioEl = useRef(null);
 
@@ -19,9 +19,18 @@ function Countdown(props) {
       if (number === count) {
         clearInterval(timerID);
         const timerId = setInterval(() => {
-          var elements = document.getElementsByClassName("red-circle");
+          var elements = document.getElementsByClassName("character");
           for (let i = 0; i < elements.length; i++) {
-            elements[i].style.display="block";
+            if (elements[i].innerHTML === correctAnswer) {
+              let count = 0;
+              const timerId = setInterval(() => {
+                elements[i].closest('.cell').classList.toggle("blink-bg-color");
+                count++
+                if (count > 4) {
+                  clearInterval(timerId);
+                }
+              }, 300);
+            }
           }
           clearInterval(timerId);
         }, 6000);

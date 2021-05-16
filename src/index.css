@@ -38,6 +38,10 @@ Scss自動コンパイルコマンド
   position: relative;
 }
 
+.cell.blink-bg-color {
+  background-color: yellowgreen !important;
+}
+
 .choice {
   margin: 0;
 }
