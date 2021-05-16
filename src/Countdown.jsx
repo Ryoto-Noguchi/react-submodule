@@ -18,6 +18,14 @@ function Countdown(props) {
     const timerID = setInterval(function () {
       if (number === count) {
         clearInterval(timerID);
+        const timerId = setInterval(() => {
+          var elements = document.getElementsByClassName("red-circle");
+          for (let i = 0; i < elements.length; i++) {
+            console.log(elements[i]);
+            elements[i].style.display="block";
+          }
+          clearInterval(timerId);
+        }, 5000);
       } else {
         setNumber(--number);
         console.log(number);
