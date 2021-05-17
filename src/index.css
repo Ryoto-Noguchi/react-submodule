@@ -32,7 +32,6 @@ Scss自動コンパイルコマンド
 
 .cell {
   border: none;
-  background-color: skyblue;
   color: black;
   width: 100%;
   height: 100%;
@@ -42,10 +41,17 @@ Scss自動コンパイルコマンド
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: 2px 2px 2px 2px #5f72d1;
+  text-shadow: 2px 2px #555;
+  font-size: 4rem;
+  color: white;
+  background-image: linear-gradient(#2d3870, #586dd4);
 }
 
 .cell.blink-bg-color {
-  background-color: yellowgreen !important;
+  background-image: radial-gradient(#b73a3a, #f97878);
+  text-shadow: 2px 2px black;
+  color: #e4d039;
 }
 
 .choice {
@@ -53,14 +59,47 @@ Scss自動コンパイルコマンド
 }
 
 .question-box {
+  height: 4.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: pink;
+  box-shadow: 0.1rem 0.1rem 0.1rem #555;
+  color: white;
+  text-shadow: 3px 3px 0.1rem black;
+  font-size: 2rem;
+  background-image: linear-gradient(#2d3870, #586dd4);
   margin-right: 3rem;
   margin-left: 3rem;
   border-radius: 0.5rem;
   position: relative;
+}
+
+.question-box #count-down {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(#ff4c4c, red);
+  position: absolute;
+  right: 1rem;
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  box-shadow: 1px 1px 1px 1px  black;
+}
+
+.question-box #question-mark {
+  position: absolute;
+  left: 2rem;
+  font-size: 4rem;
+  color: #79b8fc;
+  text-shadow: 0 0 4px skyblue, 0 -2px #fff;
 }
 
 .question-text {
@@ -91,40 +130,23 @@ Scss自動コンパイルコマンド
   justify-content: center;
   align-items: center;
   color: black;
+  box-shadow: 0px 0px 4px 0px;
 }
 
 .alphabet.red {
-  background-color: red;
+  background-image: linear-gradient(#ff7777, red);
 }
 
 .alphabet.blue {
-  background-color: blue;
+  background-image: linear-gradient(#006eff, blue);
 }
 
 .alphabet.yellow {
-  background-color: yellow;
+  background-image: linear-gradient(white, yellow);
 }
 
 .alphabet.green {
-  background-color: green;
-}
-
-#count-down {
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  margin: 0;
-  position: relative;
-  font-size: 1.5rem;
-  text-align: center;
-  vertical-align: middle;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  background-color: red;
-  position: absolute;
-  right: 1rem;
+  background-image: linear-gradient(#c5ffc5, #209620);
 }
 
 .btn-area {

@@ -14,7 +14,6 @@ const Monitor = (props) => {
   const correctAnswer = question.answer;
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
   const [isPlaying, setIsPlaying] = useState(false);
-  const bgImgUrl = "./image/background-image.png";
 
   const goNextQuestion = () => {
     setQuestionNumber(questionNumber + 1);
@@ -39,6 +38,7 @@ const Monitor = (props) => {
     <main id="monitor" >
       <Container className="container">
         <div className="question-box">
+          <span id="question-mark">Q</span>
           <p className="question-text">{question.question}</p>
           <span id="count-down">{number}</span>
         </div>
@@ -57,7 +57,7 @@ const Monitor = (props) => {
             <div className="cell">
               <div className="circle">
                 <p className="alphabet blue">
-                  <span className="character">B</span>
+                  <span className="character alphabet-b">B</span>
                 </p>
               </div>
               <p className="choice">{question.choices.B}</p>
@@ -102,6 +102,7 @@ const Monitor = (props) => {
             goNextQuestion={goNextQuestion}
           />
         </div>
+        <br />
       </Container>
     </main>
   );
