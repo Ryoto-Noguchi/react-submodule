@@ -32,7 +32,6 @@ Scss自動コンパイルコマンド
 
 .cell {
   border: none;
-  background-color: skyblue;
   color: black;
   width: 100%;
   height: 100%;
@@ -42,10 +41,21 @@ Scss自動コンパイルコマンド
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: 2px 2px 2px 2px #5f72d1;
+  text-shadow: 2px 2px #555;
+  font-size: 4rem;
+  color: white;
+  background-image: linear-gradient(#2d3870, #586dd4);
 }
 
 .cell.blink-bg-color {
-  background-color: yellowgreen !important;
+  background-image: radial-gradient(#b73a3a, #f97878);
+  text-shadow: 2px 2px black;
+  color: #e4d039;
+}
+
+.cell .character {
+  text-shadow: 2px 2px #555;
 }
 
 .choice {
@@ -91,22 +101,23 @@ Scss自動コンパイルコマンド
   justify-content: center;
   align-items: center;
   color: black;
+  box-shadow: 0px 0px 4px 0px;
 }
 
 .alphabet.red {
-  background-color: red;
+  background-image: linear-gradient(#ff7777, red);
 }
 
 .alphabet.blue {
-  background-color: blue;
+  background-image: linear-gradient(#006eff, blue);
 }
 
 .alphabet.yellow {
-  background-color: yellow;
+  background-image: linear-gradient(white, yellow);
 }
 
 .alphabet.green {
-  background-color: green;
+  background-image: linear-gradient(#c5ffc5, #209620);
 }
 
 #count-down {
