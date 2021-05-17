@@ -38,6 +38,7 @@ const Monitor = (props) => {
     <main id="monitor" >
       <Container className="container">
         <div className="question-box">
+          <span id="question-mark">Q</span>
           <p className="question-text">{question.question}</p>
           <span id="count-down">{number}</span>
         </div>
