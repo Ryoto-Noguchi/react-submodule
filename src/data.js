@@ -52,7 +52,7 @@ const questions = [
       C: "Japan",
       D: "China",
     },
-    answer: "D",
+    answer: "B",
   },
 ];
 export default questions;

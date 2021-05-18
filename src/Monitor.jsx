@@ -1,19 +1,20 @@
-import React, { useState } from "react";
-import data from "./data";
+import React, { useState, useEffect } from "react";
+// import data from "./data";
 import { Container, Row, Col } from "react-bootstrap";
-// import axios from "axios";
+import axios from "axios";
 import Countdown from "./Countdown";
 import NextQuestion from "./NextQuestion";
 import PrevQuestion from "./PrevQuestion";
-// import background from "../public/image/background-image"
 
 const Monitor = (props) => {
-  const [questions] = useState(data);
+  const {questions} = props;
+
   const [questionNumber, setQuestionNumber] = useState(1);
-  const question = questions.find((question) => question.id === questionNumber);
-  const correctAnswer = question.answer;
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
   const [isPlaying, setIsPlaying] = useState(false);
+  
+  const question = questions.find((question) => question.id === questionNumber);
+  const correctAnswer = question.answer;
 
   const goNextQuestion = () => {
     setQuestionNumber(questionNumber + 1);
@@ -34,8 +35,11 @@ const Monitor = (props) => {
     }
   };
 
+  if (questions.length === 0) {
+    return <h1>Loading...</h1>;
+  }
   return (
-    <main id="monitor" >
+    <main id="monitor">
       <Container className="container">
         <div className="question-box">
           <span id="question-mark">Q</span>
