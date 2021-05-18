@@ -19,7 +19,7 @@ const questions = [
       C: "Yoshihide Suga",
       D: "Shinzo Abe"
     },
-    answer: "D",
+    answer: "C",
   },
   {
     id: 3,
