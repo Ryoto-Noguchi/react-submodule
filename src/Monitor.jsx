@@ -31,23 +31,27 @@ const Monitor = (props) => {
   };
 
   const resetQuestion = () => {
+    let cueMonitor = document.getElementById("cue-monitor");
+    cueMonitor.classList.remove("hide");
     setNumber(10);
     setIsPlaying(false);
     const characters = document.getElementsByClassName("character");
     for (let i = 0; i < characters.length; i++) {
       characters[i].closest(".cell").classList.remove("blink-bg-color");
-      characters[i].closest(".cell").lastElementChild.classList.remove("toggle-bg-color");
+      characters[i]
+        .closest(".cell")
+        .lastElementChild.classList.remove("toggle-bg-color");
     }
     const answerBoxes = document.getElementsByClassName("count-box");
     for (let i = 0; i < answerBoxes.length; i++) {
       answerBoxes[i].classList.add("hide");
-
     }
   };
 
   if (questions.length === 0) {
     return <h1>Loading...</h1>;
   }
+
   return (
     <main id="monitor">
       <Container className="container">
@@ -118,6 +122,9 @@ const Monitor = (props) => {
             </div>
           </Col>
         </Row>
+        <div id="cue-monitor" className="">
+          <h1 className="page-title">問題です！</h1>
+        </div>
         <div className="btn-area">
           <PrevQuestion
             questionNumber={questionNumber}

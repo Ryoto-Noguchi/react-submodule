@@ -5,6 +5,8 @@ function Countdown(props) {
   const countdownAudioEl = useRef(null);
   let { number, setNumber, correctAnswer, isPlaying, setIsPlaying } = props;
   const countdown = () => {
+    let cueMonitor = document.getElementById("cue-monitor");
+    cueMonitor.classList.add("hide");
     // ↓[Next]ボタンをカウントダウン中はdisabledにする
     document.getElementById("next-btn").disabled = true;
     // ↓[Prev]ボタンをカウントダウン中はdisabledにする
