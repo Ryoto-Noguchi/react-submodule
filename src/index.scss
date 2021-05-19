@@ -14,12 +14,37 @@ Scss自動コンパイルコマンド
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 /* Monitor.jsx */
 #monitor {
+  width: 100vw;
+  // height: 100vh;
+  position: relative;
   background-image: url("./images/background-image.png");
+  z-index: 0;
+}
+
+// 「問題です！」画面
+#cue-monitor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/background-image.png");
+  z-index: 10 ;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  .page-title {
+    transform: translateY(-200px);
+    font-size: 10rem;
+    text-shadow: 10px 10px 10px grey;
+    color: yellow;
+  }
 }
 
 .choice-box {
@@ -79,7 +104,7 @@ Scss自動コンパイルコマンド
   #count-down {
     width: 3.5rem;
     height: 3.5rem;
-    font-size: 2.5rem ;
+    font-size: 2.5rem;
     border-radius: 50%;
     margin: 0;
     position: relative;
@@ -93,7 +118,7 @@ Scss自動コンパイルコマンド
     right: 1rem;
     color: white;
     text-shadow: 3px 3px 3px black;
-    box-shadow: 1px 1px 1px 1px  black
+    box-shadow: 1px 1px 1px 1px black;
   }
   #question-mark {
     position: absolute;
@@ -150,9 +175,12 @@ Scss自動コンパイルコマンド
 .btn-area {
   display: flex;
   justify-content: flex-end;
+  z-index: 20 ;
+  position: relative;
 
   .manupulate-btn {
     margin-right: 1rem;
+      z-index: 20 ;
   }
 }
 
@@ -164,11 +192,15 @@ Scss自動コンパイルコマンド
   bottom: 1rem;
   font-size: 2.5rem;
   border: 2px solid grey;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
   line-height: 2.5rem;
   box-shadow: 2px 2px 2px black;
   text-shadow: 2px 2px #555;
-  background-image: linear-gradient(to right, rgb(125, 138, 255), rgb(185, 231, 249));
+  background-image: linear-gradient(
+    to right,
+    rgb(125, 138, 255),
+    rgb(185, 231, 249)
+  );
   color: blue;
   &.toggle-bg-color {
     background-image: radial-gradient(#e4d039, #fcf4b4);
