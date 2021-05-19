@@ -5,11 +5,12 @@ function Countdown(props) {
   const countdownAudioEl = useRef(null);
   let { number, setNumber, correctAnswer, isPlaying, setIsPlaying } = props;
   const countdown = () => {
+    // ↓[Next]ボタンをカウントダウン中はdisabledにする
     document.getElementById("next-btn").disabled = true;
+    // ↓[Prev]ボタンをカウントダウン中はdisabledにする
     document.getElementById("prev-btn").disabled = true;
     console.log(document.getElementById("next-btn"));
-    // console.log(`再生否:${isPlaying}`);
-    console.log(number);
+    // ↓isPlayingをTRUEに切り替え、useEffectメソッドを走らせる
     setIsPlaying((isPlaying) => !isPlaying);
     setIsPlaying((isPlaying) => {
       return isPlaying;
@@ -17,17 +18,33 @@ function Countdown(props) {
 
     const count = 0;
     const timerID = setInterval(function () {
+      // ↓カウントダウンが0になったら
       if (number === count) {
+        // ↓繰り返しを停止する
         clearInterval(timerID);
+        // ↓「アンサーチェック！」の合図と同時に回答数を表示する
+        setTimeout(() => {
+          const boxes = document.getElementsByClassName("count-box");
+          for (let i = 0; i < boxes.length; i++) {
+            boxes[i].classList.remove("hide");
+          }
+        }, 2400);
         const timerId = setInterval(() => {
-          var elements = document.getElementsByClassName("character");
-          for (let i = 0; i < elements.length; i++) {
-            if (elements[i].innerHTML === correctAnswer) {
+          const characters = document.getElementsByClassName("character");
+          for (let i = 0; i < characters.length; i++) {
+            if (characters[i].innerHTML === correctAnswer) {
               let count = 0;
+              // ↓「正解はこちら！」の合図に合わせて正解の選択肢の背景色を変える
               const timerId = setInterval(() => {
-                elements[i].closest(".cell").classList.toggle("blink-bg-color");
+                characters[i]
+                  .closest(".cell")
+                  .classList.toggle("blink-bg-color");
+                characters[i]
+                  .closest(".cell")
+                  .lastElementChild.classList.toggle("toggle-bg-color");
                 count++;
                 if (count > 4) {
+                  // ↓正解の選択肢の背景色を点滅させる
                   clearInterval(timerId);
                   setTimeout(() => {
                     document.getElementById("next-btn").disabled = false;
@@ -41,14 +58,15 @@ function Countdown(props) {
         }, 6000);
       } else {
         setNumber(--number);
+        // ↓カウントダウンをコンソールに表示
         console.log(number);
       }
     }, 1000);
   };
 
   useEffect(() => {
-    console.log("played");
     if (isPlaying) {
+      // ↓カウントダウン音源を再生する
       countdownAudioEl.current.play();
     }
   }, [isPlaying]);

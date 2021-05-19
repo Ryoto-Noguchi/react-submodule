@@ -13,6 +13,10 @@ Scss自動コンパイルコマンド
   padding: 3rem;
 }
 
+.hide {
+  display: none;
+}
+
 /* Monitor.jsx */
 #monitor {
   background-image: url("./images/background-image.png");
@@ -158,11 +162,31 @@ Scss自動コンパイルコマンド
   margin-right: 1rem;
 }
 
-.red-circle {
-  display: none;
-  color: red;
-  font-size: 18rem;
+.count-box {
+  width: 5rem;
   position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 2.5rem;
+  border: 2px solid grey;
+  border-radius: .8rem;
+  line-height: 2.5rem;
+  box-shadow: 2px 2px 2px black;
+  text-shadow: 2px 2px #555;
+  background-image: linear-gradient(to right, #7d8aff, #b9e7f9);
+  color: blue;
+}
+
+.count-box.toggle-bg-color {
+  background-image: radial-gradient(#e4d039, #fcf4b4);
+  text-shadow: 2px 2px black;
+  color: #b73a3a;
+}
+
+.count-box .number-of-answers {
+  padding: 0;
+  margin: 0;
+  transform: translate(25%, 0%);
 }
 
 /* Admin.jsx */
