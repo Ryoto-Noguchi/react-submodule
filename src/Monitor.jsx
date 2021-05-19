@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // import data from "./data";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
@@ -8,6 +8,7 @@ import PrevQuestion from "./PrevQuestion";
 
 const Monitor = (props) => {
   const { questions } = props;
+  const quizCueAudioEl = useRef(null);
 
   const [questionNumber, setQuestionNumber] = useState(1);
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
@@ -16,6 +17,7 @@ const Monitor = (props) => {
   const [numberOfAnswersB, setNumberOfAnswersB] = useState(4);
   const [numberOfAnswersC, setNumberOfAnswersC] = useState(8);
   const [numberOfAnswersD, setNumberOfAnswersD] = useState(2);
+  const [isQuizCue, setIsQuizCue] = useState(false);
 
   const question = questions.find((question) => question.id === questionNumber);
   const correctAnswer = question.answer;
@@ -30,8 +32,18 @@ const Monitor = (props) => {
     resetQuestion();
   };
 
+  useEffect(() => {
+    if (isQuizCue) {
+      quizCueAudioEl.current.play();
+    }
+    return () => {
+      setIsQuizCue(false)
+    }
+  }, [isQuizCue])
+
   const resetQuestion = () => {
     let cueMonitor = document.getElementById("cue-monitor");
+    setIsQuizCue(true);
     cueMonitor.classList.remove("hide");
     setNumber(10);
     setIsPlaying(false);
@@ -143,7 +155,7 @@ const Monitor = (props) => {
             goNextQuestion={goNextQuestion}
           />
         </div>
-        <br />
+        <audio src="./music/quiz_cue.mp3" ref={quizCueAudioEl} muted autoPlay></audio>
       </Container>
     </main>
   );
