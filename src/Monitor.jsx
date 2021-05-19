@@ -33,9 +33,15 @@ const Monitor = (props) => {
   const resetQuestion = () => {
     setNumber(10);
     setIsPlaying(false);
-    var elements = document.getElementsByClassName("character");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].closest(".cell").classList.remove("blink-bg-color");
+    const characters = document.getElementsByClassName("character");
+    for (let i = 0; i < characters.length; i++) {
+      characters[i].closest(".cell").classList.remove("blink-bg-color");
+      characters[i].closest(".cell").lastElementChild.classList.remove("toggle-bg-color");
+    }
+    const answerBoxes = document.getElementsByClassName("count-box");
+    for (let i = 0; i < answerBoxes.length; i++) {
+      answerBoxes[i].classList.add("hide");
+
     }
   };
 

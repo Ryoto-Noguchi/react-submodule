@@ -24,9 +24,9 @@ function Countdown(props) {
         clearInterval(timerID);
         // ↓「アンサーチェック！」の合図と同時に回答数を表示する
         setTimeout(() => {
-          const boxes = document.getElementsByClassName("count-box");
-          for (let i = 0; i < boxes.length; i++) {
-            boxes[i].classList.remove("hide");
+          const answerBoxes = document.getElementsByClassName("count-box");
+          for (let i = 0; i < answerBoxes.length; i++) {
+            answerBoxes[i].classList.remove("hide");
           }
         }, 2400);
         const timerId = setInterval(() => {
