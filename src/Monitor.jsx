@@ -7,12 +7,16 @@ import NextQuestion from "./NextQuestion";
 import PrevQuestion from "./PrevQuestion";
 
 const Monitor = (props) => {
-  const {questions} = props;
+  const { questions } = props;
 
   const [questionNumber, setQuestionNumber] = useState(1);
   let [number, setNumber] = useState(10); // 10秒カウントダウン用
   const [isPlaying, setIsPlaying] = useState(false);
-  
+  const [numberOfAnswersA, setNumberOfAnswersA] = useState(0);
+  const [numberOfAnswersB, setNumberOfAnswersB] = useState(4);
+  const [numberOfAnswersC, setNumberOfAnswersC] = useState(8);
+  const [numberOfAnswersD, setNumberOfAnswersD] = useState(2);
+
   const question = questions.find((question) => question.id === questionNumber);
   const correctAnswer = question.answer;
 
@@ -54,7 +58,12 @@ const Monitor = (props) => {
                   <span className="character">A</span>
                 </p>
               </div>
-              <p className="choice">{question.choices.A}</p>
+              <div>
+                <p className="choice">{question.choices.A}</p>
+              </div>
+              <div className="count-box hide">
+                <p className="number-of-answers">{numberOfAnswersA}</p>
+              </div>
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -64,7 +73,12 @@ const Monitor = (props) => {
                   <span className="character alphabet-b">B</span>
                 </p>
               </div>
-              <p className="choice">{question.choices.B}</p>
+              <div>
+                <p className="choice">{question.choices.B}</p>
+              </div>
+              <div className="count-box hide">
+                <p className="number-of-answers">{numberOfAnswersB}</p>
+              </div>
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -74,7 +88,12 @@ const Monitor = (props) => {
                   <span className="character">C</span>
                 </p>
               </div>
-              <p className="choice">{question.choices.C}</p>
+              <div>
+                <p className="choice">{question.choices.C}</p>
+              </div>
+              <div className="count-box hide">
+                <p className="number-of-answers">{numberOfAnswersC}</p>
+              </div>
             </div>
           </Col>
           <Col xs={6} className="choice-box">
@@ -84,7 +103,12 @@ const Monitor = (props) => {
                   <span className="character">D</span>
                 </p>
               </div>
-              <p className="choice">{question.choices.D}</p>
+              <div>
+                <p className="choice">{question.choices.D}</p>
+              </div>
+              <div className="count-box hide">
+                <p className="number-of-answers">{numberOfAnswersD}</p>
+              </div>
             </div>
           </Col>
         </Row>
