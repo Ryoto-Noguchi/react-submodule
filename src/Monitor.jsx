@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 // import data from "./data";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Countdown from "./Countdown";
 import NextQuestion from "./NextQuestion";
@@ -73,7 +74,7 @@ const Monitor = (props) => {
           <span id="count-down">{number}</span>
         </div>
         <Row className="row">
-          <Col className="choice-box">
+          <Col xs={6} className="choice-box">
             <div className="cell">
               <div className="circle">
                 <p className="alphabet red">
@@ -154,8 +155,14 @@ const Monitor = (props) => {
             questions={questions}
             goNextQuestion={goNextQuestion}
           />
+          <Link to='/ranking' className="btn ranking-btn" >Rank</Link>
         </div>
-        <audio src="./music/quiz_cue.mp3" ref={quizCueAudioEl} muted autoPlay></audio>
+        <audio
+          src="./music/quiz_cue.mp3"
+          ref={quizCueAudioEl}
+          muted
+          autoPlay
+        ></audio>
       </Container>
     </main>
   );

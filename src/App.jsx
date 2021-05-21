@@ -6,6 +6,7 @@ import Monitor from "./Monitor";
 import Admin from "./Admin";
 import Client from "./Client";
 import Error from "./Error";
+import Ranking from "./Ranking";
 
 import axios from "axios";
 
@@ -29,7 +30,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Monitor questions={questions}/>
+          <Monitor questions={questions} />
+        </Route>
+        <Route exact path="/ranking">
+          <Ranking />
         </Route>
         <Route exact path="/admin">
           <Admin />
