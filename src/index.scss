@@ -209,7 +209,6 @@ Scss自動コンパイルコマンド
   }
 }
 
-
 // 回答数表示
 .count-box {
   width: 5rem;
@@ -241,37 +240,71 @@ Scss自動コンパイルコマンド
 }
 
 /* Ranking.jsx */
-.rowSpan {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#vertical-title {
-  text-align: center;
-  font-size: 3rem;
-  width: 100%;
-  height: 100vh;
-  word-break: break-all;
-  line-height: auto;
-  padding: 0;
-  transform: translateY(10%);
-  .turn-90 {
-    display: inline-block;
-    transform: rotate(90deg);
-  }
-  .text-make-smaller {
-    // font-size: 2.7rem;
-  }
-}
-
-.table-td {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  letter-spacing: 1rem;
-  .name-in-table {
-    margin: 0;
+#ranking-screen {
+  background-image: url("./images/background-image.png");
+  #ranking-table-bg {
+    height: 56.375rem;
+    background-color: rgba(0, 247, 255, 0.907);
+    border-radius: 2rem;
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgb(0, 21, 255), -2px -2px 4px rgb(0, 21, 255);
+    #ranking-table {
+      font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
+      font-weight: 900;
+      color: rgb(0, 21, 255);
+      text-shadow: 4px 4px 4px white, -4px -4px 4px white;
+      border-collapse: separate;
+      .vertical-title-box {
+        border: none;
+        margin-right: 20px;
+        width: 10%;
+        #vertical-title {
+          margin-right: 50px;
+          text-align: center;
+          font-size: 3.2rem;
+          word-break: break-all;
+          line-height: auto;
+          padding: 0;
+          transform: translateY(10%);
+          .turn-90 {
+            display: inline-block;
+            transform: rotate(-90deg);
+          }
+          .text-make-smaller {
+          }
+        }
+      }
+      .table-row {
+        display: flex;
+        margin-bottom: 4px;
+        .table-td {
+          border: 2px solid blue;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2.2rem;
+          letter-spacing: 1rem;
+          .name-in-table {
+            margin: 0;
+          }
+        }
+        .name-box {
+          width: 80%;
+          margin-right: 10px;
+        }
+        .answered-time-box {
+          width: 20%;
+          display: flex;
+          justify-content: flex-end;
+          padding-right: 0;
+          .answered-time {
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }
 

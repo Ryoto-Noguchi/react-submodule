@@ -242,37 +242,80 @@ Scss自動コンパイルコマンド
 }
 
 /* Ranking.jsx */
-.rowSpan {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#ranking-screen {
+  background-image: url("./images/background-image.png");
 }
 
-#vertical-title {
+#ranking-screen #ranking-table-bg {
+  height: 56.375rem;
+  background-color: rgba(0, 247, 255, 0.907);
+  border-radius: 2rem;
+  padding: 20px;
+  box-shadow: 2px 2px 4px #0015ff, -2px -2px 4px #0015ff;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table {
+  font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
+  font-weight: 900;
+  color: #0015ff;
+  text-shadow: 4px 4px 4px white, -4px -4px 4px white;
+  border-collapse: separate;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table .vertical-title-box {
+  border: none;
+  margin-right: 20px;
+  width: 10%;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table .vertical-title-box #vertical-title {
+  margin-right: 50px;
   text-align: center;
-  font-size: 3rem;
-  width: 100%;
-  height: 100vh;
+  font-size: 3.2rem;
   word-break: break-all;
   line-height: auto;
   padding: 0;
   transform: translateY(10%);
 }
 
-#vertical-title .turn-90 {
+#ranking-screen #ranking-table-bg #ranking-table .vertical-title-box #vertical-title .turn-90 {
   display: inline-block;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
-.table-td {
+#ranking-screen #ranking-table-bg #ranking-table .table-row {
+  display: flex;
+  margin-bottom: 4px;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table .table-row .table-td {
+  border: 2px solid blue;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   letter-spacing: 1rem;
 }
 
-.table-td .name-in-table {
+#ranking-screen #ranking-table-bg #ranking-table .table-row .table-td .name-in-table {
+  margin: 0;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table .table-row .name-box {
+  width: 80%;
+  margin-right: 10px;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table .table-row .answered-time-box {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table .table-row .answered-time-box .answered-time {
+  padding: 0;
   margin: 0;
 }
 
