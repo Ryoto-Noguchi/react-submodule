@@ -4,25 +4,14 @@ import { Container, Row, Col, Table, Button } from "react-bootstrap";
 function Ranking() {
   const [isPlaying, setIsPlaying] = useState(false);
   const rankingAudioEl = useRef(null);
-  const displayRanking = () => {
+
+  // ↓table要素のIDを取得(この中で処理を実行)
+  const addRankingElements = () => {
     var tbody = document.getElementById("tbody");
-
-    let count = document.getElementsByClassName("table-row");
-    setTimeout(() => {
-      const timerID = setInterval(() => {
-        if (count.length + 1 >= 10) {
-          clearInterval(timerID);
-        }
-        addRankingElements();
-      }, 350);
-    }, 1000);
-
-    // ↓table要素のIDを取得(この中で処理を実行)
-    const addRankingElements = () => {
-      console.log("呼び出し");
+    for (let i = 0; i < 10; i++) {
       // ↓tr要素を生成
       var tr = document.createElement("tr");
-      tr.setAttribute("class", "table-row");
+      tr.setAttribute("class", "table-row non-visible");
 
       // ↓td要素(回答者名ボックス)を生成
       var td_name_box = document.createElement("td");
@@ -47,13 +36,35 @@ function Ranking() {
       tr.appendChild(td_time_box);
 
       tbody.appendChild(tr);
-    };
+    }
   };
 
-  const handleClick = () => {
+  const removeHide = () => {
     setIsPlaying(true);
-    displayRanking();
+    setTimeout(() => {
+      const tr = document.getElementsByClassName("table-row");
+      var index = 0;
+      const end = tr.length;
+      const last = end - 1;
+      const timerID = setInterval(() => {
+        if (index < last) {
+          tr[index].classList.remove("non-visible");
+        } else {
+          setTimeout(() => {
+            tr[last].classList.remove("non-visible");
+          }, 1200);
+        }
+        index++;
+        if (index === end) {
+          clearInterval(timerID);
+        }
+      }, 350);
+    }, 1000);
   };
+
+  useEffect(() => {
+    addRankingElements();
+  }, []);
 
   useEffect(() => {
     if (isPlaying) {
@@ -75,7 +86,7 @@ function Ranking() {
                       スト
                       <br />
                       <span className="text-make-smaller">10</span>
-                      <Button className="btn" onClick={() => handleClick()}>
+                      <Button className="btn" onClick={() => removeHide()}>
                         Go
                       </Button>
                     </p>
