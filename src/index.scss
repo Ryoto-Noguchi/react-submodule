@@ -17,6 +17,10 @@ Scss自動コンパイルコマンド
   display: none !important;
 }
 
+.non-visible {
+  opacity: 0;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
