@@ -234,10 +234,15 @@ Scss自動コンパイルコマンド
     margin-right: 1rem;
     z-index: 20;
   }
-  .ranking-btn {
-    color: white;
+  #ranking_btn {
+    padding: 0;
     background-color: rgb(249, 108, 0);
     border-color: rgb(249, 108, 0);
+    .btn {
+      color: white;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 }
 
