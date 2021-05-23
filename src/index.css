@@ -239,10 +239,16 @@ Scss自動コンパイルコマンド
   z-index: 20;
 }
 
-.btn-area .ranking-btn {
-  color: white;
+.btn-area #ranking_btn {
+  padding: 0;
   background-color: #f96c00;
   border-color: #f96c00;
+}
+
+.btn-area #ranking_btn .btn {
+  color: white;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .count-box {

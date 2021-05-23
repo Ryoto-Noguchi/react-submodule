@@ -11,7 +11,8 @@ function Countdown(props) {
     document.getElementById("next_btn").disabled = true;
     // ↓[Prev]ボタンをカウントダウン中はdisabledにする
     document.getElementById("prev_btn").disabled = true;
-    console.log(document.getElementById("next_btn"));
+    document.getElementById("ranking_btn").disabled = true;
+
     // ↓isPlayingをTRUEに切り替え、useEffectメソッドを走らせる
     setIsPlaying((isPlaying) => !isPlaying);
     setIsPlaying((isPlaying) => {
@@ -51,6 +52,7 @@ function Countdown(props) {
                   setTimeout(() => {
                     document.getElementById("next_btn").disabled = false;
                     document.getElementById("prev_btn").disabled = false;
+                    document.getElementById("ranking_btn").disabled = false;
                   }, 1000);
                 }
               }, 300);

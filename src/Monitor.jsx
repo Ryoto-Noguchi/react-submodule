@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 // import data from "./data";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Countdown from "./Countdown";
 import NextQuestion from "./NextQuestion";
 import PrevQuestion from "./PrevQuestion";
@@ -25,15 +24,18 @@ const Monitor = (props) => {
 
   const goNextQuestion = () => {
     setQuestionNumber(questionNumber + 1);
+    setIsQuizCue(true);
     resetQuestion();
   };
 
   const goPrevQuestion = () => {
     setQuestionNumber(questionNumber - 1);
+    setIsQuizCue(true);
     resetQuestion();
   };
 
   useEffect(() => {
+    console.log("isQuizCueが変更されました")
     if (isQuizCue) {
       quizCueAudioEl.current.play();
     }
@@ -62,7 +64,11 @@ const Monitor = (props) => {
   };
 
   if (questions.length === 0) {
-    return <h1>Loading...</h1>;
+    return (
+      <main>
+        <h1>Loading...</h1>;
+      </main>
+    );
   }
 
   return (
@@ -155,14 +161,13 @@ const Monitor = (props) => {
             questions={questions}
             goNextQuestion={goNextQuestion}
           />
-          <Link to='/ranking' className="btn ranking-btn" >Rank</Link>
+          <Button id="ranking_btn">
+            <Link to="/ranking" className="btn">
+              Rank
+            </Link>
+          </Button>
         </div>
-        <audio
-          src="./music/quiz_cue.mp3"
-          ref={quizCueAudioEl}
-          muted
-          autoPlay
-        ></audio>
+        <audio src="./music/quiz_cue.mp3" ref={quizCueAudioEl}></audio>
       </Container>
     </main>
   );
