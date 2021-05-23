@@ -54,7 +54,7 @@ function Ranking(props) {
       p_time.setAttribute("class", "answered-time");
       p_time.innerHTML = responses[n].time
         .replaceAll(":", "")
-        .replace(/^0+/, "");
+        .replace(/^0+/, ""); // HH:mmの0を消去
       td_time_box.appendChild(p_time);
       tr.appendChild(td_time_box);
 
