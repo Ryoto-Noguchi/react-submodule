@@ -14,12 +14,12 @@ function App() {
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-      const testUrl = "http://localhost:8080/api/v1/questions";
-      const fetchTest = async () => {
-        const res = await axios.get(testUrl);
+      const json_questions = "http://localhost:8080/api/v1/questions";
+      const fetchData = async () => {
+        const res = await axios.get(json_questions);
         setQuestions(res.data);
       };
-      fetchTest();
+      fetchData();
     }, []);
 
     if (questions.length === 0) {

@@ -33,6 +33,22 @@ Scss自動コンパイルコマンド
   }
 }
 
+// 早押しワーストランキング最終行td要素点滅
+.blink-bg-color-2 {
+  background-image: radial-gradient(rgb(250, 133, 240), rgb(254, 207, 255)) !important;
+  text-shadow: 2px 2px 2px black, -1px -1px 1px black;
+  color: rgb(254, 0, 0);
+}
+
+// 早押しワーストランキング最終行順位欄点滅
+.blink-bg-color-3 {
+  background-image: radial-gradient(rgb(252, 61, 230), rgb(251, 214, 252)) !important;
+  text-shadow: 2px 2px 2px black, -1px -1px 1px black;
+  box-shadow: 2px 2px 2px rgb(232, 117, 255), -1px -1px 1px rgb(232, 117, 255) !important;
+  border-color: #f3a4ff !important;
+  color: rgb(254, 0, 0) !important;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -315,6 +331,7 @@ Scss自動コンパイルコマンド
           margin-right: 10px;
           position: relative;
           .rank-number {
+            width: 6.25rem;
             position: absolute;
             background-image: radial-gradient(#2d3870, #2945d0);
             box-shadow: 2px 2px 2px rgb(94, 94, 94),

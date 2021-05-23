@@ -34,6 +34,20 @@ Scss自動コンパイルコマンド
   }
 }
 
+.blink-bg-color-2 {
+  background-image: radial-gradient(#fa85f0, #fecfff) !important;
+  text-shadow: 2px 2px 2px black, -1px -1px 1px black;
+  color: #fe0000;
+}
+
+.blink-bg-color-3 {
+  background-image: radial-gradient(#fc3de6, #fbd6fc) !important;
+  text-shadow: 2px 2px 2px black, -1px -1px 1px black;
+  box-shadow: 2px 2px 2px #e875ff, -1px -1px 1px #e875ff !important;
+  border-color: #f3a4ff !important;
+  color: #fe0000 !important;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -330,6 +344,7 @@ Scss自動コンパイルコマンド
 }
 
 #ranking-screen #ranking-table-bg #ranking-table .table-row .name-box .rank-number {
+  width: 6.25rem;
   position: absolute;
   background-image: radial-gradient(#2d3870, #2945d0);
   box-shadow: 2px 2px 2px #5e5e5e, -2px -2px 2px #5e5e5e;
