@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
+import data from "./respondentData";
 
 function Ranking() {
+  const [respondents, setRespondents] = useState(data);
   const [isPlaying, setIsPlaying] = useState(false);
   const rankingAudioEl = useRef(null);
 
@@ -17,17 +19,27 @@ function Ranking() {
       var td_name_box = document.createElement("td");
       td_name_box.setAttribute("class", "table-td name-box");
 
-      // ↓span要素(順位)を生成
-      var span_rank = document.createElement("sapn");
-      span_rank.setAttribute("class", "rank-number");
-      span_rank.innerHTML = 56;
+        // ↓span要素(順位)を生成
+        var span_rank = document.createElement("sapn");
+        span_rank.setAttribute("class", "rank-number");
+
+        // ↓画面に表示する順位を設定
+        const numberOfDisplayItems = 10
+        const total = respondents.length;
+        console.log(`変数total: ${total}`)
+        const screenTop = total - numberOfDisplayItems;
+        console.log(`変数screenTop: ${screenTop}`)
+        const n = i + screenTop;
+        span_rank.innerHTML = respondents[n].id;
+
+      // ↓生成したspan要素(順位)をtd要素(回答者名ボックス)にappend
       td_name_box.appendChild(span_rank);
 
-      // ↓p要素(回答者名)を生成
-      var p_name = document.createElement("p");
-      p_name.setAttribute("class", "name-in-table");
-      p_name.innerHTML = "John Smith";
-      td_name_box.appendChild(p_name);
+        // ↓p要素(回答者名)を生成
+        var p_name = document.createElement("p");
+        p_name.setAttribute("class", "name-in-table");
+        p_name.innerHTML = respondents[n].fullName;
+        td_name_box.appendChild(p_name);
 
       // ↓中身を作成したtd要素(回答者名ボックス)をtrに追加
       tr.appendChild(td_name_box);
@@ -39,7 +51,7 @@ function Ranking() {
       // ↓p要素(回答時間)を生成
       var p_time = document.createElement("p");
       p_time.setAttribute("class", "answered-time");
-      p_time.innerHTML = "7.90";
+      p_time.innerHTML = respondents[n].time;
       td_time_box.appendChild(p_time);
       tr.appendChild(td_time_box);
 
@@ -53,7 +65,10 @@ function Ranking() {
       const tr = document.getElementsByClassName("table-row");
       var index = 0;
       const end = tr.length;
-      const last = end - 1;
+      console.log(`作成したtr要素数: ${end}`);
+      // ↓全件数から１引いて最後の行にDelayを作る
+      const lastOne = 1;
+      const last = end - lastOne;
       const timerID = setInterval(() => {
         if (index < last) {
           tr[index].classList.remove("non-visible");
@@ -62,7 +77,23 @@ function Ranking() {
           setTimeout(() => {
             tr[last].classList.remove("non-visible");
             tr[last].classList.add("flip-animation");
-          }, 1200);
+            let count = 0;
+            const lastRowTdEls = tr[last].children;
+            const timerID = setInterval(() => {
+              // ↓最終列のtd要素を点滅
+              for (let i = 0; i < lastRowTdEls.length; i++) {
+                const td = lastRowTdEls[i];
+                td.classList.toggle("blink-bg-color-2");
+              }
+              const span = lastRowTdEls[0].firstChild;
+              span.classList.toggle("blink-bg-color-3");
+
+              count ++;
+              if (count > 6) {
+                clearInterval(timerID)
+              }
+            }, 350);
+          }, 1000);
         }
         index++;
         if (index === end) {
