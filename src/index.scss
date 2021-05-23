@@ -79,7 +79,7 @@ Scss自動コンパイルコマンド
 }
 
 // 「問題です！」画面
-#cue-monitor {
+#cue_monitor {
   position: absolute;
   left: 0;
   top: 0;
@@ -153,7 +153,7 @@ Scss自動コンパイルコマンド
   margin-left: 3rem;
   border-radius: 0.5rem;
   position: relative;
-  #count-down {
+  #count_down {
     width: 3.5rem;
     height: 3.5rem;
     font-size: 2.5rem;
@@ -172,7 +172,7 @@ Scss自動コンパイルコマンド
     text-shadow: 3px 3px 3px black;
     box-shadow: 1px 1px 1px 1px black;
   }
-  #question-mark {
+  #question_mark {
     position: absolute;
     left: 2rem;
     font-size: 4rem;
@@ -272,15 +272,15 @@ Scss自動コンパイルコマンド
 }
 
 /* Ranking.jsx */
-#ranking-screen {
+#ranking_screen {
   background-image: url("./images/background-image.png");
-  #ranking-table-bg {
+  #ranking_table_bg {
     height: 56.375rem;
     background-image: radial-gradient(#11f1fd, skyblue);
     border-radius: 2rem;
     padding: 20px;
     box-shadow: 2px 2px 4px rgb(0, 21, 255), -2px -2px 4px rgb(0, 21, 255);
-    #ranking-table {
+    #ranking_table {
       font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
       font-weight: 900;
       color: rgb(0, 21, 255);
@@ -290,7 +290,7 @@ Scss自動コンパイルコマンド
         border: none;
         margin-right: 20px;
         width: 10%;
-        #vertical-title {
+        #vertical_title {
           margin-right: 50px;
           text-align: center;
           font-size: 3.2rem;
@@ -301,8 +301,6 @@ Scss自動コンパイルコマンド
           .turn-90 {
             display: inline-block;
             transform: rotate(-90deg);
-          }
-          .text-make-smaller {
           }
         }
       }

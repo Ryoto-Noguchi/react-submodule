@@ -46,7 +46,7 @@ const Admin = (props) => {
             </h3>
             <div className="sound-btns">
               <Button>Question</Button>
-              <Button id="ready-go-btn" onClick={() => countdown()}>
+              <Button id="ready_go_btn" onClick={() => countdown()}>
                 Ready Go !
               </Button>
               <Button>Answer Check</Button>

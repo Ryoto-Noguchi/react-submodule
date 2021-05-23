@@ -6,7 +6,7 @@ function PrevQuestion(props) {
   return (
     <div>
         <Button
-          id="prev-btn"
+          id="prev_btn"
           className="manupulate-btn"
           variant="info"
           onClick={() => goPrevQuestion()}

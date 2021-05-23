@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import data from "./respondentData";
+// import data from "./respondentData";
 
 function Ranking(props) {
   const { responses } = props;
@@ -117,15 +117,15 @@ function Ranking(props) {
   }, [isPlaying]);
 
   return (
-    <main id="ranking-screen">
+    <main id="ranking_screen">
       <Container>
-        <Row id="ranking-table-bg">
+        <Row id="ranking_table_bg">
           <Col>
-            <Table id="ranking-table">
+            <Table id="ranking_table">
               <tbody id="tbody">
                 <tr>
                   <td rowSpan="10" className="vertical-title-box">
-                    <p id="vertical-title">
+                    <p id="vertical_title">
                       早押しワ<span className="turn-90">ー</span>
                       スト
                       <br />

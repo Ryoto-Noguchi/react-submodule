@@ -43,7 +43,7 @@ const Monitor = (props) => {
   }, [isQuizCue])
 
   const resetQuestion = () => {
-    let cueMonitor = document.getElementById("cue-monitor");
+    let cueMonitor = document.getElementById("cue_monitor");
     setIsQuizCue(true);
     cueMonitor.classList.remove("hide");
     setNumber(10);
@@ -69,9 +69,9 @@ const Monitor = (props) => {
     <main id="monitor">
       <Container className="container">
         <div className="question-box">
-          <span id="question-mark">Q</span>
+          <span id="question_mark">Q</span>
           <p className="question-text">{question.question}</p>
-          <span id="count-down">{number}</span>
+          <span id="count_down">{number}</span>
         </div>
         <Row className="row">
           <Col xs={6} className="choice-box">
@@ -135,7 +135,7 @@ const Monitor = (props) => {
             </div>
           </Col>
         </Row>
-        <div id="cue-monitor" className="">
+        <div id="cue_monitor" className="">
           <h1 className="page-title">問題です！</h1>
         </div>
         <div className="btn-area">

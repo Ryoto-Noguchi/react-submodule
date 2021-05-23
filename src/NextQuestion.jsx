@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 
 function NextQuestion(props) {
@@ -7,7 +7,7 @@ function NextQuestion(props) {
   return (
     <div>
       <Button
-        id="next-btn"
+        id="next_btn"
         className="manupulate-btn"
         variant="warning"
         onClick={() => goNextQuestion()}

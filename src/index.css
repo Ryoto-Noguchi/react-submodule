@@ -75,7 +75,7 @@ Scss自動コンパイルコマンド
   z-index: 0;
 }
 
-#cue-monitor {
+#cue_monitor {
   position: absolute;
   left: 0;
   top: 0;
@@ -89,7 +89,7 @@ Scss自動コンパイルコマンド
   align-items: center;
 }
 
-#cue-monitor .page-title {
+#cue_monitor .page-title {
   transform: translateY(-200px);
   font-size: 10rem;
   text-shadow: 10px 10px 10px grey;
@@ -152,7 +152,7 @@ Scss自動コンパイルコマンド
   position: relative;
 }
 
-.question-box #count-down {
+.question-box #count_down {
   width: 3.5rem;
   height: 3.5rem;
   font-size: 2.5rem;
@@ -172,7 +172,7 @@ Scss自動コンパイルコマンド
   box-shadow: 1px 1px 1px 1px black;
 }
 
-.question-box #question-mark {
+.question-box #question_mark {
   position: absolute;
   left: 2rem;
   font-size: 4rem;
@@ -273,11 +273,11 @@ Scss自動コンパイルコマンド
 }
 
 /* Ranking.jsx */
-#ranking-screen {
+#ranking_screen {
   background-image: url("./images/background-image.png");
 }
 
-#ranking-screen #ranking-table-bg {
+#ranking_screen #ranking_table_bg {
   height: 56.375rem;
   background-image: radial-gradient(#11f1fd, skyblue);
   border-radius: 2rem;
@@ -285,7 +285,7 @@ Scss自動コンパイルコマンド
   box-shadow: 2px 2px 4px #0015ff, -2px -2px 4px #0015ff;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table {
+#ranking_screen #ranking_table_bg #ranking_table {
   font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
   font-weight: 900;
   color: #0015ff;
@@ -293,13 +293,13 @@ Scss自動コンパイルコマンド
   border-collapse: separate;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .vertical-title-box {
+#ranking_screen #ranking_table_bg #ranking_table .vertical-title-box {
   border: none;
   margin-right: 20px;
   width: 10%;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .vertical-title-box #vertical-title {
+#ranking_screen #ranking_table_bg #ranking_table .vertical-title-box #vertical_title {
   margin-right: 50px;
   text-align: center;
   font-size: 3.2rem;
@@ -309,12 +309,12 @@ Scss自動コンパイルコマンド
   transform: translateY(10%);
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .vertical-title-box #vertical-title .turn-90 {
+#ranking_screen #ranking_table_bg #ranking_table .vertical-title-box #vertical_title .turn-90 {
   display: inline-block;
   transform: rotate(-90deg);
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .table-row {
+#ranking_screen #ranking_table_bg #ranking_table .table-row {
   height: 80px;
   display: flex;
   margin-bottom: 6px;
@@ -322,7 +322,7 @@ Scss自動コンパイルコマンド
   text-shadow: 2px 2px 2px lightslategray, -2px -2px 2px lightslategray;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .table-row .table-td {
+#ranking_screen #ranking_table_bg #ranking_table .table-row .table-td {
   border: 2px solid blue;
   border-radius: 10px;
   display: flex;
@@ -334,17 +334,17 @@ Scss自動コンパイルコマンド
   box-shadow: 2px 2px 2px #3f3f3f, -2px -2px 2px #3f3f3f;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .table-row .table-td .name-in-table {
+#ranking_screen #ranking_table_bg #ranking_table .table-row .table-td .name-in-table {
   margin: 0;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .table-row .name-box {
+#ranking_screen #ranking_table_bg #ranking_table .table-row .name-box {
   width: 80%;
   margin-right: 10px;
   position: relative;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .table-row .name-box .rank-number {
+#ranking_screen #ranking_table_bg #ranking_table .table-row .name-box .rank-number {
   width: 6.25rem;
   position: absolute;
   background-image: radial-gradient(#2d3870, #2945d0);
@@ -357,14 +357,14 @@ Scss自動コンパイルコマンド
   color: white;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .table-row .answered-time-box {
+#ranking_screen #ranking_table_bg #ranking_table .table-row .answered-time-box {
   width: 20%;
   display: flex;
   justify-content: flex-end;
   padding-right: 0;
 }
 
-#ranking-screen #ranking-table-bg #ranking-table .table-row .answered-time-box .answered-time {
+#ranking_screen #ranking_table_bg #ranking_table .table-row .answered-time-box .answered-time {
   padding: 0;
   margin: 0;
 }

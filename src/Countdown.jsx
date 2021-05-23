@@ -5,13 +5,13 @@ function Countdown(props) {
   const countdownAudioEl = useRef(null);
   let { number, setNumber, correctAnswer, isPlaying, setIsPlaying } = props;
   const countdown = () => {
-    let cueMonitor = document.getElementById("cue-monitor");
+    let cueMonitor = document.getElementById("cue_monitor");
     cueMonitor.classList.add("hide");
     // ↓[Next]ボタンをカウントダウン中はdisabledにする
-    document.getElementById("next-btn").disabled = true;
+    document.getElementById("next_btn").disabled = true;
     // ↓[Prev]ボタンをカウントダウン中はdisabledにする
-    document.getElementById("prev-btn").disabled = true;
-    console.log(document.getElementById("next-btn"));
+    document.getElementById("prev_btn").disabled = true;
+    console.log(document.getElementById("next_btn"));
     // ↓isPlayingをTRUEに切り替え、useEffectメソッドを走らせる
     setIsPlaying((isPlaying) => !isPlaying);
     setIsPlaying((isPlaying) => {
@@ -49,8 +49,8 @@ function Countdown(props) {
                   // ↓正解の選択肢の背景色を点滅させる
                   clearInterval(timerId);
                   setTimeout(() => {
-                    document.getElementById("next-btn").disabled = false;
-                    document.getElementById("prev-btn").disabled = false;
+                    document.getElementById("next_btn").disabled = false;
+                    document.getElementById("prev_btn").disabled = false;
                   }, 1000);
                 }
               }, 300);
