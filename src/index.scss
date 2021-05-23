@@ -21,6 +21,18 @@ Scss自動コンパイルコマンド
   opacity: 0;
 }
 
+.flip-animation {
+  animation: 1s linear flip-animation;
+  @keyframes flip-animation {
+    0% {
+      transform: rotateX(0);
+    }
+    100% {
+      transform: rotateX(360deg);
+    }
+  }
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -293,6 +305,7 @@ Scss自動コンパイルコマンド
           letter-spacing: 1rem;
           background-image: radial-gradient(#2d3870, #586dd4);
           box-shadow: 2px 2px 2px rgb(63, 63, 63), -2px -2px 2px rgb(63, 63, 63);
+
           .name-in-table {
             margin: 0;
           }
@@ -300,6 +313,19 @@ Scss自動コンパイルコマンド
         .name-box {
           width: 80%;
           margin-right: 10px;
+          position: relative;
+          .rank-number {
+            position: absolute;
+            background-image: radial-gradient(#2d3870, #2945d0);
+            box-shadow: 2px 2px 2px rgb(94, 94, 94),
+              -2px -2px 2px rgb(94, 94, 94);
+            left: 1.5rem;
+            border: 0.2rem solid rgb(2, 2, 169);
+            border-radius: 0.6rem;
+            text-align: center;
+            padding-left: 1rem;
+            color: white;
+          }
         }
         .answered-time-box {
           width: 20%;

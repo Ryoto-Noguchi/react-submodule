@@ -17,11 +17,19 @@ function Ranking() {
       var td_name_box = document.createElement("td");
       td_name_box.setAttribute("class", "table-td name-box");
 
+      // ↓span要素(順位)を生成
+      var span_rank = document.createElement("sapn");
+      span_rank.setAttribute("class", "rank-number");
+      span_rank.innerHTML = 56;
+      td_name_box.appendChild(span_rank);
+
       // ↓p要素(回答者名)を生成
       var p_name = document.createElement("p");
       p_name.setAttribute("class", "name-in-table");
       p_name.innerHTML = "John Smith";
       td_name_box.appendChild(p_name);
+
+      // ↓中身を作成したtd要素(回答者名ボックス)をtrに追加
       tr.appendChild(td_name_box);
 
       // ↓td要素(回答時間ボックス)を生成
@@ -49,9 +57,11 @@ function Ranking() {
       const timerID = setInterval(() => {
         if (index < last) {
           tr[index].classList.remove("non-visible");
+          tr[index].classList.add("flip-animation");
         } else {
           setTimeout(() => {
             tr[last].classList.remove("non-visible");
+            tr[last].classList.add("flip-animation");
           }, 1200);
         }
         index++;

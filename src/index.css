@@ -21,6 +21,19 @@ Scss自動コンパイルコマンド
   opacity: 0;
 }
 
+.flip-animation {
+  animation: 1s linear flip-animation;
+}
+
+@keyframes flip-animation {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -313,6 +326,19 @@ Scss自動コンパイルコマンド
 #ranking-screen #ranking-table-bg #ranking-table .table-row .name-box {
   width: 80%;
   margin-right: 10px;
+  position: relative;
+}
+
+#ranking-screen #ranking-table-bg #ranking-table .table-row .name-box .rank-number {
+  position: absolute;
+  background-image: radial-gradient(#2d3870, #2945d0);
+  box-shadow: 2px 2px 2px #5e5e5e, -2px -2px 2px #5e5e5e;
+  left: 1.5rem;
+  border: 0.2rem solid #0202a9;
+  border-radius: 0.6rem;
+  text-align: center;
+  padding-left: 1rem;
+  color: white;
 }
 
 #ranking-screen #ranking-table-bg #ranking-table .table-row .answered-time-box {
