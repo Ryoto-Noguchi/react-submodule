@@ -234,14 +234,29 @@ Scss自動コンパイルコマンド
     margin-right: 1rem;
     z-index: 20;
   }
-  #ranking_btn {
+
+  #rank_btn {
     padding: 0;
     background-color: rgb(249, 108, 0);
     border-color: rgb(249, 108, 0);
-    .btn {
+    margin-right: 1rem;
+    a {
       color: white;
       padding-top: 0;
       padding-bottom: 0;
+    }
+  }
+
+  #champion_btn {
+    padding: 0;
+    background-color: gold;
+    border-color: gold;
+    a {
+      color: black;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-right: 5px;
+      margin-left: 5px;
     }
   }
 }

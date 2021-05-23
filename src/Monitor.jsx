@@ -161,9 +161,15 @@ const Monitor = (props) => {
             questions={questions}
             goNextQuestion={goNextQuestion}
           />
-          <Button id="ranking_btn">
+          <Button id="rank_btn">
             <Link to="/ranking" className="btn">
               Rank
+            </Link>
+          </Button>
+
+          <Button id="champion_btn">
+            <Link to="/champion" className="">
+              Champ
             </Link>
           </Button>
         </div>

@@ -7,11 +7,18 @@ function Countdown(props) {
   const countdown = () => {
     let cueMonitor = document.getElementById("cue_monitor");
     cueMonitor.classList.add("hide");
+    let nextBtn = document.getElementById("next_btn");
+    let prevBtn = document.getElementById("prev_btn");
+    let rankBtn = document.getElementById("rank_btn");
+    let championBtn = document.getElementById("champion_btn");
     // ↓[Next]ボタンをカウントダウン中はdisabledにする
-    document.getElementById("next_btn").disabled = true;
+    nextBtn.disabled = true;
     // ↓[Prev]ボタンをカウントダウン中はdisabledにする
-    document.getElementById("prev_btn").disabled = true;
-    document.getElementById("ranking_btn").disabled = true;
+    prevBtn.disabled = true;
+    // ↓[Rank]ボタンをカウントダウン中はdisabledにする
+    rankBtn.disabled = true;
+    // ↓[Champ]ボタンをカウントダウン中はdisabledにする
+    championBtn.disabled = true;
 
     // ↓isPlayingをTRUEに切り替え、useEffectメソッドを走らせる
     setIsPlaying((isPlaying) => !isPlaying);
@@ -50,9 +57,10 @@ function Countdown(props) {
                   // ↓正解の選択肢の背景色を点滅させる
                   clearInterval(timerId);
                   setTimeout(() => {
-                    document.getElementById("next_btn").disabled = false;
-                    document.getElementById("prev_btn").disabled = false;
-                    document.getElementById("ranking_btn").disabled = false;
+                    nextBtn.disabled = false;
+                    prevBtn.disabled = false;
+                    rankBtn.disabled = false;
+                    championBtn.disabled = false;
                   }, 1000);
                 }
               }, 300);
