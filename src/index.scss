@@ -248,7 +248,7 @@ Scss自動コンパイルコマンド
   background-image: url("./images/background-image.png");
   #ranking-table-bg {
     height: 56.375rem;
-    background-color: rgba(0, 247, 255, 0.907);
+    background-image: radial-gradient(#11f1fd, skyblue);
     border-radius: 2rem;
     padding: 20px;
     box-shadow: 2px 2px 4px rgb(0, 21, 255), -2px -2px 4px rgb(0, 21, 255);
@@ -280,7 +280,9 @@ Scss自動コンパイルコマンド
       }
       .table-row {
         display: flex;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
+        color: rgb(243, 249, 132);
+        text-shadow: 2px 2px 2px lightslategray, -2px -2px 2px lightslategray;
         .table-td {
           border: 2px solid blue;
           border-radius: 10px;
@@ -289,6 +291,8 @@ Scss自動コンパイルコマンド
           align-items: center;
           font-size: 2.2rem;
           letter-spacing: 1rem;
+          background-image: radial-gradient(#2d3870, #586dd4);
+          box-shadow: 2px 2px 2px rgb(63, 63, 63), -2px -2px 2px rgb(63, 63, 63);
           .name-in-table {
             margin: 0;
           }

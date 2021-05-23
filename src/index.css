@@ -252,7 +252,7 @@ Scss自動コンパイルコマンド
 
 #ranking-screen #ranking-table-bg {
   height: 56.375rem;
-  background-color: rgba(0, 247, 255, 0.907);
+  background-image: radial-gradient(#11f1fd, skyblue);
   border-radius: 2rem;
   padding: 20px;
   box-shadow: 2px 2px 4px #0015ff, -2px -2px 4px #0015ff;
@@ -289,7 +289,9 @@ Scss自動コンパイルコマンド
 
 #ranking-screen #ranking-table-bg #ranking-table .table-row {
   display: flex;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  color: #f3f984;
+  text-shadow: 2px 2px 2px lightslategray, -2px -2px 2px lightslategray;
 }
 
 #ranking-screen #ranking-table-bg #ranking-table .table-row .table-td {
@@ -300,6 +302,8 @@ Scss自動コンパイルコマンド
   align-items: center;
   font-size: 2.2rem;
   letter-spacing: 1rem;
+  background-image: radial-gradient(#2d3870, #586dd4);
+  box-shadow: 2px 2px 2px #3f3f3f, -2px -2px 2px #3f3f3f;
 }
 
 #ranking-screen #ranking-table-bg #ranking-table .table-row .table-td .name-in-table {
