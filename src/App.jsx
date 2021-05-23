@@ -11,20 +11,23 @@ import Ranking from "./Ranking";
 import axios from "axios";
 
 function App() {
-    const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState([]);
+  const [responses, setResponses] = useState([]);
+  useEffect(() => {
+    const json_questions = "http://localhost:8080/api/v1/questions";
+    const json_responses = "http://localhost:8080/api/v1/responses";
+    const fetchData = async () => {
+      const questionData = await axios.get(json_questions);
+      setQuestions(questionData.data);
+      const responseData = await axios.get(json_responses);
+      setResponses(responseData.data);
+    };
+    fetchData();
+  }, []);
 
-    useEffect(() => {
-      const json_questions = "http://localhost:8080/api/v1/questions";
-      const fetchData = async () => {
-        const res = await axios.get(json_questions);
-        setQuestions(res.data);
-      };
-      fetchData();
-    }, []);
-
-    if (questions.length === 0) {
-      return <h1>Loading...</h1>;
-    }
+  if (questions.length === 0) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <Router>
@@ -33,7 +36,7 @@ function App() {
           <Monitor questions={questions} />
         </Route>
         <Route exact path="/ranking">
-          <Ranking />
+          <Ranking responses={responses}/>
         </Route>
         <Route exact path="/admin">
           <Admin />

@@ -315,6 +315,7 @@ Scss自動コンパイルコマンド
 }
 
 #ranking-screen #ranking-table-bg #ranking-table .table-row {
+  height: 80px;
   display: flex;
   margin-bottom: 6px;
   color: #f3f984;

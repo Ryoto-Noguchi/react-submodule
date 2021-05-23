@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import data from "./respondentData";
 
-function Ranking() {
-  const [respondents, setRespondents] = useState(data);
+function Ranking(props) {
+  const { responses } = props;
+  // const [responses, setResponses] = useState(data);
   const [isPlaying, setIsPlaying] = useState(false);
   const rankingAudioEl = useRef(null);
 
@@ -25,12 +26,12 @@ function Ranking() {
 
         // ↓画面に表示する順位を設定
         const numberOfDisplayItems = 10
-        const total = respondents.length;
+        const total = responses.length;
         console.log(`変数total: ${total}`)
         const screenTop = total - numberOfDisplayItems;
         console.log(`変数screenTop: ${screenTop}`)
         const n = i + screenTop;
-        span_rank.innerHTML = respondents[n].id;
+        span_rank.innerHTML = responses[n].id;
 
       // ↓生成したspan要素(順位)をtd要素(回答者名ボックス)にappend
       td_name_box.appendChild(span_rank);
@@ -38,7 +39,7 @@ function Ranking() {
         // ↓p要素(回答者名)を生成
         var p_name = document.createElement("p");
         p_name.setAttribute("class", "name-in-table");
-        p_name.innerHTML = respondents[n].fullName;
+        p_name.innerHTML = responses[n].fullName;
         td_name_box.appendChild(p_name);
 
       // ↓中身を作成したtd要素(回答者名ボックス)をtrに追加
@@ -51,7 +52,9 @@ function Ranking() {
       // ↓p要素(回答時間)を生成
       var p_time = document.createElement("p");
       p_time.setAttribute("class", "answered-time");
-      p_time.innerHTML = respondents[n].time;
+      p_time.innerHTML = responses[n].time
+        .replaceAll(":", "")
+        .replace(/^0+/, "");
       td_time_box.appendChild(p_time);
       tr.appendChild(td_time_box);
 
