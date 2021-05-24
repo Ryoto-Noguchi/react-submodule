@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-// import data from "./respondentData";
 
-function Ranking(props) {
+function Champion(props) {
   const { responses } = props;
   // const [responses, setResponses] = useState(data);
   const [isPlaying, setIsPlaying] = useState(false);
-  const rankingAudioEl = useRef(null);
+  const championAudioEl = useRef(null);
 
   // ↓table要素のIDを取得(この中で処理を実行)
   const addRankingElements = () => {
     var tbody = document.getElementById("tbody");
-    for (let i = 0; i < 10; i++) {
+    const numberOfDisplayItems = 10;
+    for (let i = 0; i < numberOfDisplayItems; i++) {
       // ↓tr要素を生成
       var tr = document.createElement("tr");
       tr.setAttribute("class", "table-row non-visible");
@@ -20,27 +20,19 @@ function Ranking(props) {
       var td_name_box = document.createElement("td");
       td_name_box.setAttribute("class", "table-td name-box");
 
-        // ↓span要素(順位)を生成
-        var span_rank = document.createElement("sapn");
-        span_rank.setAttribute("class", "rank-number");
-
-        // ↓画面に表示する順位を設定
-        const numberOfDisplayItems = 10
-        const total = responses.length;
-        console.log(`変数total: ${total}`)
-        const screenTop = total - numberOfDisplayItems;
-        console.log(`変数screenTop: ${screenTop}`)
-        const n = i + screenTop;
-        span_rank.innerHTML = responses[n].id;
+      // ↓span要素(順位)を生成
+      var span_rank = document.createElement("sapn");
+      span_rank.setAttribute("class", "rank-number");
+      span_rank.innerHTML = responses[i].id;
 
       // ↓生成したspan要素(順位)をtd要素(回答者名ボックス)にappend
       td_name_box.appendChild(span_rank);
 
-        // ↓p要素(回答者名)を生成
-        var p_name = document.createElement("p");
-        p_name.setAttribute("class", "name-in-table");
-        p_name.innerHTML = responses[n].fullName;
-        td_name_box.appendChild(p_name);
+      // ↓p要素(回答者名)を生成
+      var p_name = document.createElement("p");
+      p_name.setAttribute("class", "name-in-table");
+      p_name.innerHTML = responses[i].fullName;
+      td_name_box.appendChild(p_name);
 
       // ↓中身を作成したtd要素(回答者名ボックス)をtrに追加
       tr.appendChild(td_name_box);
@@ -52,7 +44,7 @@ function Ranking(props) {
       // ↓p要素(回答時間)を生成
       var p_time = document.createElement("p");
       p_time.setAttribute("class", "answered-time");
-      p_time.innerHTML = responses[n].time
+      p_time.innerHTML = responses[i].time
         .replaceAll(":", "")
         .replace(/^0+/, ""); // HH:mmの0を消去
       td_time_box.appendChild(p_time);
@@ -62,49 +54,42 @@ function Ranking(props) {
     }
   };
 
-  const removeHide = () => {
+  const reveal = () => {
     setIsPlaying(true);
     setTimeout(() => {
       const tr = document.getElementsByClassName("table-row");
-      var index = 0;
-      const end = tr.length;
-      console.log(`作成したtr要素数: ${end}`);
-      // ↓全件数から１引いて最後の行にDelayを作る
-      const lastOne = 1;
-      const last = end - lastOne;
+      var index = 9;
+      // const numberOfDisplayEls = 10; // 画面に表示する行の数
       const timerID = setInterval(() => {
-        // ↓ワーストはDelayをつけて表示するためにsetTimeout()を別個で使用。それ以外は単にsetInterval()でループ
-        if (index < last) {
+        if (index > 0) {
           tr[index].classList.remove("non-visible");
           tr[index].classList.add("flip-animation");
-        } else {
+          index--;
+        } else if (index === 0) {
           setTimeout(() => {
-            tr[last].classList.remove("non-visible");
-            tr[last].classList.add("flip-animation");
+            tr[index].classList.remove("non-visible");
+            tr[index].classList.add("flip-animation");
             let count = 0;
-            const lastRowTdEls = tr[last].children;
+            const lastRowTdEls = tr[index].children;
             const timerID = setInterval(() => {
-              // ↓最終列のtd要素を点滅
+              // ↓最上位列のtd要素を点滅
               for (let i = 0; i < lastRowTdEls.length; i++) {
                 const td = lastRowTdEls[i];
-                td.classList.toggle("blink-bg-color-2");
+                td.classList.toggle("blink-bg-color-4");
               }
               const span = lastRowTdEls[0].firstChild;
-              span.classList.toggle("blink-bg-color-3");
+              span.classList.toggle("blink-bg-color-4");
 
-              count ++;
-              if (count > 6) {
-                clearInterval(timerID)
+              count++;
+              if (count > 10) {
+                clearInterval(timerID);
               }
             }, 350);
-          }, 1000);
-        }
-        index++;
-        if (index === end) {
+          }, 1500);
           clearInterval(timerID);
         }
       }, 350);
-    }, 1000);
+    }, 2500);
   };
 
   useEffect(() => {
@@ -113,7 +98,7 @@ function Ranking(props) {
 
   useEffect(() => {
     if (isPlaying) {
-      rankingAudioEl.current.play();
+      championAudioEl.current.play();
     }
   }, [isPlaying]);
 
@@ -126,12 +111,14 @@ function Ranking(props) {
               <tbody id="tbody">
                 <tr>
                   <td rowSpan="10" className="vertical-title-box">
-                    <p id="vertical_title">
-                      早押しワ<span className="turn-90">ー</span>
-                      スト
+                    <p id="vertical_title" style={{color: "gold", textShadow: "2px 2px 2px black"}}>
+                      早押しベスト
                       <br />
                       <span className="text-make-smaller">10</span>
-                      <Button className="btn" onClick={() => removeHide()}>
+                      <Button
+                        className="btn"
+                        onClick={() => reveal()}
+                      >
                         Go
                       </Button>
                     </p>
@@ -141,10 +128,10 @@ function Ranking(props) {
             </Table>
           </Col>
         </Row>
-        <audio src="./music/ranking.mp3" ref={rankingAudioEl}></audio>
+        <audio src="./music/champion.mp3" ref={championAudioEl}></audio>
       </Container>
     </main>
   );
 }
 
-export default Ranking;
+export default Champion;

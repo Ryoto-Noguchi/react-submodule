@@ -7,6 +7,7 @@ import Admin from "./Admin";
 import Client from "./Client";
 import Error from "./Error";
 import Ranking from "./Ranking";
+import Champion from "./Champion";
 
 import axios from "axios";
 
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route exact path="/ranking">
           <Ranking responses={responses}/>
+        </Route>
+        <Route exact path="/champion">
+          <Champion responses={responses}/>
         </Route>
         <Route exact path="/admin">
           <Admin />
