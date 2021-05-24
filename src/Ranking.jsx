@@ -73,6 +73,7 @@ function Ranking(props) {
       const lastOne = 1;
       const last = end - lastOne;
       const timerID = setInterval(() => {
+        // ↓ワーストはDelayをつけて表示するためにsetTimeout()を別個で使用。それ以外は単にsetInterval()でループ
         if (index < last) {
           tr[index].classList.remove("non-visible");
           tr[index].classList.add("flip-animation");

@@ -54,9 +54,53 @@ function Champion(props) {
     }
   };
 
+  const reveal = () => {
+    setIsPlaying(true);
+    setTimeout(() => {
+      const tr = document.getElementsByClassName("table-row");
+      var index = 9;
+      // const numberOfDisplayEls = 10; // 画面に表示する行の数
+      const timerID = setInterval(() => {
+        if (index > 0) {
+          tr[index].classList.remove("non-visible");
+          tr[index].classList.add("flip-animation");
+          index--;
+        } else if (index === 0) {
+          setTimeout(() => {
+            tr[index].classList.remove("non-visible");
+            tr[index].classList.add("flip-animation");
+            let count = 0;
+            const lastRowTdEls = tr[index].children;
+            const timerID = setInterval(() => {
+              // ↓最上位列のtd要素を点滅
+              for (let i = 0; i < lastRowTdEls.length; i++) {
+                const td = lastRowTdEls[i];
+                td.classList.toggle("blink-bg-color-2");
+              }
+              const span = lastRowTdEls[0].firstChild;
+              span.classList.toggle("blink-bg-color-3");
+
+              count++;
+              if (count > 10) {
+                clearInterval(timerID);
+              }
+            }, 350);
+          }, 1500);
+          clearInterval(timerID);
+        }
+      }, 350);
+    }, 2500);
+  };
+
   useEffect(() => {
     addRankingElements();
   }, []);
+
+  useEffect(() => {
+    if (isPlaying) {
+      championAudioEl.current.play();
+    }
+  }, [isPlaying]);
 
   return (
     <main id="ranking_screen">
@@ -73,7 +117,7 @@ function Champion(props) {
                       <span className="text-make-smaller">10</span>
                       <Button
                         className="btn"
-                        // onClick={() => removeHide()}
+                        onClick={() => reveal()}
                       >
                         Go
                       </Button>

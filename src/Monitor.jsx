@@ -161,13 +161,13 @@ const Monitor = (props) => {
             questions={questions}
             goNextQuestion={goNextQuestion}
           />
-          <Button id="rank_btn">
+          <Button id="rank_btn" className="manupulate-btn">
             <Link to="/ranking" className="btn">
               Rank
             </Link>
           </Button>
 
-          <Button id="champion_btn">
+          <Button id="champion_btn" className="manupulate-btn">
             <Link to="/champion" className="">
               Champ
             </Link>
