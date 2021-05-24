@@ -1,13 +1,12 @@
 // 親コンポーネント //
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Monitor from "./Monitor";
-
-import Admin from "./Admin";
+import Monitor from "./component/monitor/Monitor";
+import Admin from "./component/admin/Admin";
 import Client from "./Client";
 import Error from "./Error";
-import Ranking from "./Ranking";
-import Champion from "./Champion";
+import Ranking from "./component/monitor/Ranking";
+import Champion from "./component/monitor/Champion";
 
 import axios from "axios";
 
