@@ -75,10 +75,10 @@ function Champion(props) {
               // ↓最上位列のtd要素を点滅
               for (let i = 0; i < lastRowTdEls.length; i++) {
                 const td = lastRowTdEls[i];
-                td.classList.toggle("blink-bg-color-2");
+                td.classList.toggle("blink-bg-color-4");
               }
               const span = lastRowTdEls[0].firstChild;
-              span.classList.toggle("blink-bg-color-3");
+              span.classList.toggle("blink-bg-color-4");
 
               count++;
               if (count > 10) {
@@ -111,7 +111,7 @@ function Champion(props) {
               <tbody id="tbody">
                 <tr>
                   <td rowSpan="10" className="vertical-title-box">
-                    <p id="vertical_title">
+                    <p id="vertical_title" style={{color: "gold", textShadow: "2px 2px 2px black"}}>
                       早押しベスト
                       <br />
                       <span className="text-make-smaller">10</span>
