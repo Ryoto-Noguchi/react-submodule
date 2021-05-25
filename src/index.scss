@@ -432,17 +432,34 @@ Scss自動コンパイルコマンド
 
 .thread-tr {
   text-align: center;
+  // #question_number_column {
+  //   width: 5%;
+  // }
+  // #question_column {
+  //   width: 20%;
+  // }
+  // #choices_column {
+  //   width: 10%;
+  // }
+  // #answer_column {
+  //   width: 5%;
+  // }
+  // #option_column {
+  //   width: 15%;
+  // }
 }
 
 .merged-cell {
   text-align: center;
   line-height: 98px;
-  font-size: 2rem;
 }
 
 .single-cell {
   text-align: center;
   line-height: 34px;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 80px;
 }
 
 .btn-box {

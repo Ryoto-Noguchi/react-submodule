@@ -46,7 +46,7 @@ function App() {
           <Admin />
         </Route>
         <Route exact path="/admin/manage">
-          <QuestionManagement />
+          <QuestionManagement questions={questions}/>
         </Route>
         <Route exact path="/client">
           <Client />

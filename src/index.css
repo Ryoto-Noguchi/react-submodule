@@ -442,12 +442,14 @@ Scss自動コンパイルコマンド
 .merged-cell {
   text-align: center;
   line-height: 98px;
-  font-size: 2rem;
 }
 
 .single-cell {
   text-align: center;
   line-height: 34px;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 80px;
 }
 
 .btn-box button {
