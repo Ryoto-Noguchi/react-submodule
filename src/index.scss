@@ -419,3 +419,35 @@ Scss自動コンパイルコマンド
   display: flex;
   justify-content: space-around;
 }
+
+/* QuestionManagement.jsx */
+.title-area {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    text-align: center;
+  }
+}
+
+.thread-tr {
+  text-align: center;
+}
+
+.merged-cell {
+  text-align: center;
+  line-height: 98px;
+  font-size: 2rem;
+}
+
+.single-cell {
+  text-align: center;
+  line-height: 34px;
+}
+
+.btn-box {
+  button {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
