@@ -1,15 +1,7 @@
 import React from "react";
 import { Fragment } from "react";
 
-import {
-  Container,
-  Row,
-  Col,
-  Table,
-  Button,
-  Tooltip,
-  OverlayTrigger,
-} from "react-bootstrap";
+import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import Option from "./Option";
 
 function QuestionManagement(props) {
@@ -73,10 +65,10 @@ function QuestionManagement(props) {
                         </td>
                       </tr>
                       <tr>
-                        <Option choices={choices} X={A}/>
-                        <Option choices={choices} X={B}/>
-                        <Option choices={choices} X={C}/>
-                        <Option choices={choices} X={D}/>
+                        <Option choices={choices} X={A} />
+                        <Option choices={choices} X={B} />
+                        <Option choices={choices} X={C} />
+                        <Option choices={choices} X={D} />
                       </tr>
                     </Fragment>
                   );
