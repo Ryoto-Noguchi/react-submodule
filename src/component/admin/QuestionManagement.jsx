@@ -1,10 +1,18 @@
 import React from "react";
 import { Fragment } from "react";
-import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import $ from "jquery";
+import {
+  Container,
+  Row,
+  Col,
+  Table,
+  Button,
+  Tooltip,
+  OverlayTrigger,
+} from "react-bootstrap";
 
 function QuestionManagement(props) {
   const { questions } = props;
+
   return (
     <div>
       <Container fluid>
@@ -63,10 +71,46 @@ function QuestionManagement(props) {
                         </td>
                       </tr>
                       <tr>
-                        <td className="single-cell">{choices.A}</td>
-                        <td className="single-cell">{choices.B}</td>
-                        <td className="single-cell">{choices.C}</td>
-                        <td className="single-cell">{choices.D}</td>
+                        <OverlayTrigger
+                          placement="bottom"
+                          overlay={
+                            <Tooltip id={`tooltip-${choices.A}`}>
+                              {choices.A}
+                            </Tooltip>
+                          }
+                        >
+                          <td className="single-cell">{choices.A}</td>
+                        </OverlayTrigger>
+                        <OverlayTrigger
+                          placement="bottom"
+                          overlay={
+                            <Tooltip id={`tooltip-${choices.B}`}>
+                              {choices.B}
+                            </Tooltip>
+                          }
+                        >
+                          <td className="single-cell">{choices.B}</td>
+                        </OverlayTrigger>
+                        <OverlayTrigger
+                          placement="bottom"
+                          overlay={
+                            <Tooltip id={`tooltip-${choices.C}`}>
+                              {choices.C}
+                            </Tooltip>
+                          }
+                        >
+                          <td className="single-cell">{choices.C}</td>
+                        </OverlayTrigger>
+                        <OverlayTrigger
+                          placement="bottom"
+                          overlay={
+                            <Tooltip id={`tooltip-${choices.D}`}>
+                              {choices.D}
+                            </Tooltip>
+                          }
+                        >
+                          <td className="single-cell">{choices.D}</td>
+                        </OverlayTrigger>
                       </tr>
                     </Fragment>
                   );

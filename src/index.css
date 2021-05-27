@@ -449,6 +449,7 @@ Scss自動コンパイルコマンド
   line-height: 34px;
   overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
   max-width: 80px;
 }
 
