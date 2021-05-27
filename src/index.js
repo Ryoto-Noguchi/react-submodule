@@ -6,9 +6,10 @@ import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDom.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>をコメントアウトしないと「findDOMNode is deprecated in StrictMode...」というWarningが出てしまう
+  // <React.StrictMode>
+  <App />,
+  // </React.StrictMode>
   // ↓publicフォルダに入っているindex.htmlのid=rootのHTML要素をこのindex.jsの中身で置き換えますよ、という意味
   document.getElementById("root")
-)
+);

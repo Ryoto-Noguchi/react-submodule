@@ -1,9 +1,20 @@
 import React from "react";
 import { Fragment } from "react";
-import { Container, Row, Col, Table, Button } from "react-bootstrap";
+
+import {
+  Container,
+  Row,
+  Col,
+  Table,
+  Button,
+  Tooltip,
+  OverlayTrigger,
+} from "react-bootstrap";
+import Option from "./Option";
 
 function QuestionManagement(props) {
   const { questions } = props;
+
   return (
     <div>
       <Container fluid>
@@ -62,10 +73,10 @@ function QuestionManagement(props) {
                         </td>
                       </tr>
                       <tr>
-                        <td className="single-cell">{choices.A}</td>
-                        <td className="single-cell">{choices.B}</td>
-                        <td className="single-cell">{choices.C}</td>
-                        <td className="single-cell">{choices.D}</td>
+                        <Option choices={choices} X={A}/>
+                        <Option choices={choices} X={B}/>
+                        <Option choices={choices} X={C}/>
+                        <Option choices={choices} X={D}/>
                       </tr>
                     </Fragment>
                   );
