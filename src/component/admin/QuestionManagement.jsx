@@ -1,7 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import $ from "jquery";
 
 function QuestionManagement(props) {
   const { questions } = props;
