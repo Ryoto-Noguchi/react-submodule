@@ -9,6 +9,7 @@ import {
   Tooltip,
   OverlayTrigger,
 } from "react-bootstrap";
+import Option from "./Option";
 
 function QuestionManagement(props) {
   const { questions } = props;
@@ -71,46 +72,10 @@ function QuestionManagement(props) {
                         </td>
                       </tr>
                       <tr>
-                        <OverlayTrigger
-                          placement="bottom"
-                          overlay={
-                            <Tooltip id={`tooltip-${choices.A}`}>
-                              {choices.A}
-                            </Tooltip>
-                          }
-                        >
-                          <td className="single-cell">{choices.A}</td>
-                        </OverlayTrigger>
-                        <OverlayTrigger
-                          placement="bottom"
-                          overlay={
-                            <Tooltip id={`tooltip-${choices.B}`}>
-                              {choices.B}
-                            </Tooltip>
-                          }
-                        >
-                          <td className="single-cell">{choices.B}</td>
-                        </OverlayTrigger>
-                        <OverlayTrigger
-                          placement="bottom"
-                          overlay={
-                            <Tooltip id={`tooltip-${choices.C}`}>
-                              {choices.C}
-                            </Tooltip>
-                          }
-                        >
-                          <td className="single-cell">{choices.C}</td>
-                        </OverlayTrigger>
-                        <OverlayTrigger
-                          placement="bottom"
-                          overlay={
-                            <Tooltip id={`tooltip-${choices.D}`}>
-                              {choices.D}
-                            </Tooltip>
-                          }
-                        >
-                          <td className="single-cell">{choices.D}</td>
-                        </OverlayTrigger>
+                        <Option choices={choices} X={A}/>
+                        <Option choices={choices} X={B}/>
+                        <Option choices={choices} X={C}/>
+                        <Option choices={choices} X={D}/>
                       </tr>
                     </Fragment>
                   );
