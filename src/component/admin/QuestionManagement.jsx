@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
-
+import { Link } from "react-router-dom";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import Option from "./Option";
 
@@ -58,8 +58,24 @@ function QuestionManagement(props) {
                         </td>
                         <td rowSpan="2" className="merged-cell ">
                           <div className="btn-box">
-                            <Button variant="warning">編集</Button>
-                            <Button variant="danger">削除</Button>
+                            <Button variant="warning">
+                              <Link
+                                to={{
+                                  pathname: "/admin/questionDetail",
+                                  aboutProps: {
+                                    id: id,
+                                    question: question,
+                                    choices: choices,
+                                    answer: answer,
+                                  },
+                                }}
+                              >
+                                編集
+                              </Link>
+                            </Button>
+                            <Button variant="danger">
+                              <Link>削除</Link>
+                            </Button>
                           </div>
                         </td>
                       </tr>
