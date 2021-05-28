@@ -5,6 +5,10 @@ node-sass index.scss index.css --output-style expanded --watch
 Scss自動コンパイルコマンド
 */
 /* 共通 */
+body {
+  font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
+}
+
 .container {
   padding: 5rem;
 }
@@ -435,25 +439,46 @@ Scss自動コンパイルコマンド
   text-align: center;
 }
 
-.thread-tr {
-  text-align: center;
+#question_table {
+  border-collapse: separate !important;
+  border-radius: 10px;
+  font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
 }
 
-.merged-cell {
+#question_table #thead {
+  background-image: linear-gradient(#2d3870, #586dd4);
+}
+
+#question_table #thead .thread-tr {
+  text-align: center;
+  color: white;
+}
+
+#question_table #thead .thread-tr th {
+  border-radius: 10px;
+}
+
+#question_table #tbody {
+  background-image: radial-gradient(#f9f9f9, #939393);
+}
+
+#question_table #tbody .merged-cell {
   text-align: center;
   line-height: 98px;
+  border-radius: 10px;
 }
 
-.single-cell {
+#question_table #tbody .merged-cell .btn-box button {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#question_table #tbody .single-cell {
+  border-radius: 10px;
   text-align: center;
   line-height: 34px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 80px;
-}
-
-.btn-box button {
-  margin-right: 5px;
-  margin-left: 5px;
 }

@@ -5,6 +5,11 @@ Scss自動コンパイルコマンド
 */
 
 /* 共通 */
+
+body {
+  font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
+}
+
 .container {
   padding: 5rem;
 }
@@ -430,42 +435,43 @@ Scss自動コンパイルコマンド
   }
 }
 
-.thread-tr {
-  text-align: center;
-  // #question_number_column {
-  //   width: 5%;
-  // }
-  // #question_column {
-  //   width: 20%;
-  // }
-  // #choices_column {
-  //   width: 10%;
-  // }
-  // #answer_column {
-  //   width: 5%;
-  // }
-  // #option_column {
-  //   width: 15%;
-  // }
-}
+#question_table {
+  border-collapse: separate !important;
+  border-radius: 10px;
+  font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN";
+  #thead {
+    background-image: linear-gradient(#2d3870, #586dd4);
+    .thread-tr {
+      text-align: center;
+      color: white;
+      th {
+        border-radius: 10px;
+      }
+    }
+  }
 
-.merged-cell {
-  text-align: center;
-  line-height: 98px;
-}
+  #tbody {
+    background-image: radial-gradient(#f9f9f9, #939393);
+    .merged-cell {
+      text-align: center;
+      line-height: 98px;
+      border-radius: 10px;
+      .btn-box {
+        button {
+          margin-right: 5px;
+          margin-left: 5px;
+        }
+      }
+    }
 
-.single-cell {
-  text-align: center;
-  line-height: 34px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 80px;
-}
-
-.btn-box {
-  button {
-    margin-right: 5px;
-    margin-left: 5px;
+    .single-cell {
+      border-radius: 10px;
+      text-align: center;
+      line-height: 34px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 80px;
+    }
   }
 }

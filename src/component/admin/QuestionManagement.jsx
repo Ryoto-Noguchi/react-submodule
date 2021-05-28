@@ -19,8 +19,8 @@ function QuestionManagement(props) {
                 <Button>新規追加</Button>
               </div>
             </div>
-            <Table bordered hover>
-              <thead>
+            <Table id="question_table" bordered hover>
+              <thead id="thead">
                 <tr className="thread-tr">
                   <th id="question_number_column">No.</th>
                   <th id="question_column">設問</th>
@@ -31,7 +31,7 @@ function QuestionManagement(props) {
                   <th id="option_column">オプション</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tbody">
                 {questions.map((q) => {
                   const { id, question, choices, answer } = q;
                   // 選択肢の宣言
@@ -58,9 +58,8 @@ function QuestionManagement(props) {
                         </td>
                         <td rowSpan="2" className="merged-cell ">
                           <div className="btn-box">
-                            <Button>追加</Button>
-                            <Button>編集</Button>
-                            <Button>削除</Button>
+                            <Button variant="warning">編集</Button>
+                            <Button variant="danger">削除</Button>
                           </div>
                         </td>
                       </tr>
