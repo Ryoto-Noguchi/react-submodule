@@ -25,7 +25,11 @@ function QuestionDetail() {
                   選択肢
                 </th>
                 <td>A</td>
-                <td>China</td>
+                <td>
+                  <span>
+                    <input type="text" />
+                  </span>
+                </td>
               </tr>
               <tr>
                 <td>B</td>
