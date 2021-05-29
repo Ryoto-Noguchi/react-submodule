@@ -66,7 +66,13 @@ function QuestionManagement(props) {
                             <Link
                               to={{
                                 pathname: "/admin/questionDetail",
-                                search: `?id=${id}&question=${question}&A=${choices[A]}&B=${choices[B]}&C=${choices[C]}&D=${choices[D]}&answer=${answer}`,
+                                search: `?id=${id}
+                                          &question=${question}
+                                          &A=${choices[A]}
+                                          &B=${choices[B]}
+                                          &C=${choices[C]}
+                                          &D=${choices[D]}
+                                          &answer=${answer}`
                               }}
                             >
                               <Button variant="warning">編集</Button>
