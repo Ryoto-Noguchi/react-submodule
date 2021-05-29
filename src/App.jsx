@@ -49,7 +49,7 @@ function App() {
         <Route exact path="/admin/manage">
           <QuestionManagement questions={questions} />
         </Route>
-        <Route exact path="/admin/questionDetail">
+        <Route exact path="/admin/questionDetail" component={QuestionDetail}>
           <QuestionDetail />
         </Route>
         <Route exact path="/client">

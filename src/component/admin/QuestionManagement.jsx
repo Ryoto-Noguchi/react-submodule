@@ -34,6 +34,11 @@ function QuestionManagement(props) {
               <tbody id="tbody">
                 {questions.map((q) => {
                   const { id, question, choices, answer } = q;
+                  // console.log(choices.A);
+                  // var queryString = Object.keys(choices)
+                  //   .map((key) => key + "=" + choices[key])
+                  //   .join("&");
+                  //   console.log(queryString);
                   // 選択肢の宣言
                   const A = "A";
                   const B = "B";
@@ -58,24 +63,17 @@ function QuestionManagement(props) {
                         </td>
                         <td rowSpan="2" className="merged-cell ">
                           <div className="btn-box">
-                            <Button variant="warning">
-                              <Link
-                                to={{
-                                  pathname: "/admin/questionDetail",
-                                  aboutProps: {
-                                    id: id,
-                                    question: question,
-                                    choices: choices,
-                                    answer: answer,
-                                  },
-                                }}
-                              >
-                                編集
-                              </Link>
-                            </Button>
-                            <Button variant="danger">
-                              <Link>削除</Link>
-                            </Button>
+                            <Link
+                              to={{
+                                pathname: "/admin/questionDetail",
+                                search: `?id=${id}&question=${question}&A=${choices[A]}&B=${choices[B]}&C=${choices[C]}&D=${choices[D]}&answer=${answer}`,
+                              }}
+                            >
+                              <Button variant="warning">編集</Button>
+                            </Link>
+                            <Link to="/#">
+                              <Button variant="danger">削除</Button>
+                            </Link>
                           </div>
                         </td>
                       </tr>
