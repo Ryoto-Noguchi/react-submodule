@@ -18,7 +18,7 @@ const QuestionDetail = (props) => {
   const [valueD, setValueD] = useState(D);
   const [questionValue, setQuestionValue] = useState(question);
   const [answerValue, setAnswerValue] = useState(answer);
-  const [isEdited, setIsEdited] = useState(false)
+  const [isEdited, setIsEdited] = useState(false);
   const history = useHistory();
 
   const handleSubmit = () => {
@@ -37,14 +37,14 @@ const QuestionDetail = (props) => {
     const json_questions = "http://localhost:8080/api/v1/questions";
     const postData = async () => {
       await axios.post(json_questions, editedQuestion);
-      setIsEdited(true)
+      setIsEdited(true);
     };
     postData();
   };
 
   const handleBack = () => {
-    history.push("/admin/manage")
-  }
+    history.push("/admin/manage");
+  };
 
   if (isEdited) {
     return <Redirect to="/admin/manage" />;
@@ -156,10 +156,16 @@ const QuestionDetail = (props) => {
                 </tr>
               </tbody>
             </Table>
-            <Button variant="primary" style={{marginRight: "1rem"}} onClick={() => handleSubmit()}>
+            <Button
+              variant="primary"
+              style={{ marginRight: "1rem" }}
+              onClick={() => handleSubmit()}
+            >
               送信
             </Button>
-            <Button variant="warning" onClick={() => handleBack()}>戻る</Button>
+            <Button variant="warning" onClick={() => handleBack()}>
+              戻る
+            </Button>
           </Col>
         </Row>
       </Container>

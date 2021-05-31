@@ -26,7 +26,9 @@ function QuestionManagement(props) {
               <div className="title-box"></div>
               <h1>問題一覧</h1>
               <div>
+              <Link to="/admin/addQuestion">
                 <Button>新規追加</Button>
+              </Link>
               </div>
             </div>
             <Table id="question_table" bordered hover>
