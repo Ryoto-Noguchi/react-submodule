@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const QuestionDetail = (props) => {
@@ -19,6 +19,7 @@ const QuestionDetail = (props) => {
   const [questionValue, setQuestionValue] = useState(question);
   const [answerValue, setAnswerValue] = useState(answer);
   const [isEdited, setIsEdited] = useState(false)
+  const history = useHistory();
 
   const handleSubmit = () => {
     let editedQuestion = {
@@ -40,6 +41,10 @@ const QuestionDetail = (props) => {
     };
     postData();
   };
+
+  const handleBack = () => {
+    history.push("/admin/manage")
+  }
 
   if (isEdited) {
     return <Redirect to="/admin/manage" />;
@@ -151,9 +156,10 @@ const QuestionDetail = (props) => {
                 </tr>
               </tbody>
             </Table>
-            <Button variant="primary" onClick={() => handleSubmit()}>
+            <Button variant="primary" style={{marginRight: "1rem"}} onClick={() => handleSubmit()}>
               送信
             </Button>
+            <Button variant="warning" onClick={() => handleBack()}>戻る</Button>
           </Col>
         </Row>
       </Container>
