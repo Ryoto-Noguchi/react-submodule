@@ -166,7 +166,6 @@ const Monitor = (props) => {
               Rank
             </Link>
           </Button>
-
           <Button id="champion_btn" className="manupulate-btn">
             <Link to="/champion" className="">
               Champ

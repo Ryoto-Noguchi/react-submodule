@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
-
+import { Link, Redirect } from "react-router-dom";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import Option from "./Option";
+import axios from "axios";
 
 function QuestionManagement(props) {
-  const { questions } = props;
+  const [questions, setQuestions] = useState(props.questions);
+  useEffect(() => {
+    const json_questions = "http://localhost:8080/api/v1/questions";
+    const fetchData = async () => {
+      const questionData = await axios.get(json_questions);
+      setQuestions(questionData.data);
+    };
+    fetchData();
+    console.log("rendered");
+  }, []);
 
   return (
     <div>
@@ -19,8 +29,8 @@ function QuestionManagement(props) {
                 <Button>新規追加</Button>
               </div>
             </div>
-            <Table bordered hover>
-              <thead>
+            <Table id="question_table" bordered hover>
+              <thead id="thead">
                 <tr className="thread-tr">
                   <th id="question_number_column">No.</th>
                   <th id="question_column">設問</th>
@@ -31,7 +41,7 @@ function QuestionManagement(props) {
                   <th id="option_column">オプション</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tbody">
                 {questions.map((q) => {
                   const { id, question, choices, answer } = q;
                   // 選択肢の宣言
@@ -58,9 +68,17 @@ function QuestionManagement(props) {
                         </td>
                         <td rowSpan="2" className="merged-cell ">
                           <div className="btn-box">
-                            <Button>追加</Button>
-                            <Button>編集</Button>
-                            <Button>削除</Button>
+                            <Link
+                              to={{
+                                pathname: "/admin/questionDetail",
+                                search: `?id=${id}&question=${question}&A=${choices[A]}&B=${choices[B]}&C=${choices[C]}&D=${choices[D]}&answer=${answer}`,
+                              }}
+                            >
+                              <Button variant="warning">編集</Button>
+                            </Link>
+                            <Link to="/#">
+                              <Button variant="danger">削除</Button>
+                            </Link>
                           </div>
                         </td>
                       </tr>

@@ -8,6 +8,7 @@ import Error from "./Error";
 import Ranking from "./component/monitor/Ranking";
 import Champion from "./component/monitor/Champion";
 import QuestionManagement from "./component/admin/QuestionManagement";
+import QuestionDetail from "./component/admin/QuestionDetail";
 
 import axios from "axios";
 
@@ -46,7 +47,10 @@ function App() {
           <Admin />
         </Route>
         <Route exact path="/admin/manage">
-          <QuestionManagement questions={questions}/>
+          <QuestionManagement questions={questions} />
+        </Route>
+        <Route exact path="/admin/questionDetail" component={QuestionDetail}>
+          <QuestionDetail />
         </Route>
         <Route exact path="/client">
           <Client />
