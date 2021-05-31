@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Table } from "react-bootstrap";
+import { Container, Row, Col, Table, Button } from "react-bootstrap";
+import { useHistory, Redirect } from "react-router-dom";
+import axios from "axios";
 
 const QuestionDetail = (props) => {
   const params = new URLSearchParams(window.location.search);
@@ -16,6 +18,40 @@ const QuestionDetail = (props) => {
   const [valueD, setValueD] = useState(D);
   const [questionValue, setQuestionValue] = useState(question);
   const [answerValue, setAnswerValue] = useState(answer);
+  // let history = useHistory();
+  const [isEdited, setIsEdited] = useState(false)
+
+  const handleSubmit = () => {
+    let editedQuestion = {
+      id: id,
+      question: questionValue,
+      choices: {
+        A: valueA,
+        B: valueB,
+        C: valueC,
+        D: valueD,
+      },
+      answer: answerValue,
+    };
+    console.log(JSON.stringify(editedQuestion));
+    const json_questions = "http://localhost:8080/api/v1/questions";
+    const postData = async () => {
+      // const res =
+      await axios.post(json_questions, editedQuestion);
+      // console.log(`POSTした後の設問でsetter使用前:${questionValue}`);
+      // console.log(res.data.question);
+      // setQuestionValue(res.data.question);
+      // console.log(`POSTした後の設問でsetter使用後:${questionValue}`);
+      // history.push("/admin/manage");
+      // window.location = "/admin/manage"; // ブラウザの画面更新が走ってしまうが、画面表示は想定通り
+      setIsEdited(true)
+    };
+    postData();
+  };
+
+  if (isEdited) {
+    return <Redirect to="/admin/manage" />;
+  }
 
   return (
     <main>
@@ -123,6 +159,9 @@ const QuestionDetail = (props) => {
                 </tr>
               </tbody>
             </Table>
+            <Button variant="primary" onClick={() => handleSubmit()}>
+              送信
+            </Button>
           </Col>
         </Row>
       </Container>

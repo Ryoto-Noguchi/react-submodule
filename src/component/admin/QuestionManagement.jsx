@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import Option from "./Option";
+import axios from "axios";
 
 function QuestionManagement(props) {
-  const { questions } = props;
+  const [questions, setQuestions] = useState(props.questions);
+  useEffect(() => {
+    const json_questions = "http://localhost:8080/api/v1/questions";
+    const fetchData = async () => {
+      const questionData = await axios.get(json_questions);
+      setQuestions(questionData.data);
+    };
+    fetchData();
+    console.log("rendered");
+  }, []);
 
   return (
     <div>
@@ -34,11 +44,6 @@ function QuestionManagement(props) {
               <tbody id="tbody">
                 {questions.map((q) => {
                   const { id, question, choices, answer } = q;
-                  // console.log(choices.A);
-                  // var queryString = Object.keys(choices)
-                  //   .map((key) => key + "=" + choices[key])
-                  //   .join("&");
-                  //   console.log(queryString);
                   // 選択肢の宣言
                   const A = "A";
                   const B = "B";
@@ -66,13 +71,7 @@ function QuestionManagement(props) {
                             <Link
                               to={{
                                 pathname: "/admin/questionDetail",
-                                search: `?id=${id}
-                                          &question=${question}
-                                          &A=${choices[A]}
-                                          &B=${choices[B]}
-                                          &C=${choices[C]}
-                                          &D=${choices[D]}
-                                          &answer=${answer}`
+                                search: `?id=${id}&question=${question}&A=${choices[A]}&B=${choices[B]}&C=${choices[C]}&D=${choices[D]}&answer=${answer}`,
                               }}
                             >
                               <Button variant="warning">編集</Button>
