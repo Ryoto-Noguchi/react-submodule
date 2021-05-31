@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import Option from "./Option";
 import axios from "axios";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 const QuestionDetail = (props) => {
@@ -18,7 +18,6 @@ const QuestionDetail = (props) => {
   const [valueD, setValueD] = useState(D);
   const [questionValue, setQuestionValue] = useState(question);
   const [answerValue, setAnswerValue] = useState(answer);
-  // let history = useHistory();
   const [isEdited, setIsEdited] = useState(false)
 
   const handleSubmit = () => {
@@ -36,14 +35,7 @@ const QuestionDetail = (props) => {
     console.log(JSON.stringify(editedQuestion));
     const json_questions = "http://localhost:8080/api/v1/questions";
     const postData = async () => {
-      // const res =
       await axios.post(json_questions, editedQuestion);
-      // console.log(`POSTした後の設問でsetter使用前:${questionValue}`);
-      // console.log(res.data.question);
-      // setQuestionValue(res.data.question);
-      // console.log(`POSTした後の設問でsetter使用後:${questionValue}`);
-      // history.push("/admin/manage");
-      // window.location = "/admin/manage"; // ブラウザの画面更新が走ってしまうが、画面表示は想定通り
       setIsEdited(true)
     };
     postData();
