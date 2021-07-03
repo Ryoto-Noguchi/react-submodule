@@ -9,7 +9,7 @@ function AddQuestion() {
   const [B, setB] = useState("");
   const [C, setC] = useState("");
   const [D, setD] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [answer, setAnswer] = useState("A");
   const history = useHistory();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
