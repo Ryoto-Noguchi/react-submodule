@@ -17,6 +17,24 @@ function QuestionManagement(props) {
     console.log("rendered");
   }, []);
 
+  const handleDelete = (id) => {
+    console.log(id);
+    const url = "http://localhost:8080/api/v1/questions/delete";
+    const deleteData = async () => {
+      const res = await axios.delete(`${url}/${id}`);
+      const isDeleted = res.data;
+      console.log(`削除された？: ${isDeleted}`);
+      const refetchData = async () => {
+        const newQuestions = await axios.get(
+          "http://localhost:8080/api/v1/questions"
+        );
+        setQuestions(newQuestions.data);
+      };
+      refetchData();
+    };
+    deleteData();
+  };
+
   return (
     <div>
       <Container fluid>
@@ -26,9 +44,9 @@ function QuestionManagement(props) {
               <div className="title-box"></div>
               <h1>問題一覧</h1>
               <div>
-              <Link to="/admin/addQuestion">
-                <Button>新規追加</Button>
-              </Link>
+                <Link to="/admin/addQuestion">
+                  <Button>新規追加</Button>
+                </Link>
               </div>
             </div>
             <Table id="question_table" bordered hover>
@@ -78,9 +96,15 @@ function QuestionManagement(props) {
                             >
                               <Button variant="warning">編集</Button>
                             </Link>
-                            <Link to="/#">
-                              <Button variant="danger">削除</Button>
-                            </Link>
+                            {/* <Link to="/#"> */}
+                            <Button
+                              variant="danger"
+                              value={id}
+                              onClick={(e) => handleDelete(e.target.value)}
+                            >
+                              削除
+                            </Button>
+                            {/* </Link> */}
                           </div>
                         </td>
                       </tr>
